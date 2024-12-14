@@ -1,53 +1,147 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import "@/node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .orange-red-gradient {
+    @apply bg-gradient-to-r from-[#FFB535] to-[#F2295B];
+  }
+  .green-blue-gradient {
+    @apply bg-gradient-to-r from-[#30C5E4] to-[#28E55D];
+  }
+  .pink-purple-gradient {
+    @apply bg-gradient-to-r from-[#FF3571] to-[#880175];
+  }
+  .blue-purple-gradient {
+    @apply bg-gradient-to-r from-[#2E9EFF] to-[#9C33F7];
+  }
+  .flexRow {
+    @apply flex justify-between items-center;
+  }
+  .flexCol {
+    @apply flex flex-col justify-between items-center;
+  }
+  .flexCenter {
+    @apply flex justify-center items-center;
+  }
+  .overlay {
+    @apply inset-0 absolute bg-black/40;
+  }
+  /* .not-focus-within :not(:focus-within) {
+    @apply text-black;
+  } */
+  .gridCols1 {
+    @apply grid grid-cols-1 place-items-center;
+  }
 }
 
-@keyframes anim {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-  
-  
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 10;
+  src: url("../public/fonts/woff2/Dana-Hairline.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/
+      url("../public/fonts/woff/Dana-Hairline.woff") format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 100;
+  src: url("../public/fonts/woff2/Dana-Thin.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("../public/fonts/woff/Dana-Thin.woff")
+      format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 200;
+  src: url("../public/fonts/woff2/Dana-UltraLight.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/
+      url("../public/fonts/woff/Dana-UltraLight.woff") format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 300;
+  src: url("../public/fonts/woff2/Dana-Light.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("../public/fonts/woff/Dana-Light.woff")
+      format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 500;
+  src: url("../public/fonts/woff2/Dana-Medium.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("../public/fonts/woff/Dana-Medium.woff")
+      format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 600;
+  src: url("../public/fonts/woff2/Dana-DemiBold.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/
+      url("../public/fonts/woff/Dana-DemiBold.woff") format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 800;
+  src: url("../public/fonts/woff2/Dana-ExtraBold.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/
+      url("../public/fonts/woff/Dana-ExtraBold.woff") format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 900;
+  src: url("../public/fonts/woff2/Dana-Black.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("../public/fonts/woff/Dana-Black.woff")
+      format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: bold;
+  src: url("../public/fonts/woff2/Dana-Bold.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("../public/fonts/woff/Dana-Bold.woff")
+      format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../public/fonts/woff2/Dana-Regular.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("../public/fonts/woff/Dana-Regular.woff")
+      format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+body {
+  font-family: dana !important;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --radius: 0.5rem;
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+/* Add this CSS to your stylesheet or inside a <style> tag */
+.dropdown-trigger {
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.dropdown-menu-content {
+  margin-top: 15px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.dropdown-menu-content[data-state="open"] {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.dropdown-menu-content[data-state="closed"] {
+  transform: translateY(-10px); /* or any other value that works for you */
 }
