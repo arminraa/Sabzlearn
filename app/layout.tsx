@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body className="bg-lightGray/15 overflow-x-hidden">
         <Header />
-        {children}``
+        {children}
       </body>
     </html>
   );

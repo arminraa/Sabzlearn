@@ -11,10 +11,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-		screens : {
-			"3xl" : "2000px"
-		}
-		,
+      screens: {
+        xs: "425px",
+        "3xl": "2000px",
+      },
       colors: {
         lightBlue: "rgb(14,165,233)",
         lightGreen: "rgb(34,197,94)",

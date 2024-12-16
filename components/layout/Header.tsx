@@ -40,7 +40,7 @@ export default function Header() {
   };
   return (
     <>
-      <header className="bg-white sticky top-0 right-0 left-0 shadow-md py-4">
+      <header className="bg-white sticky top-0 right-0 left-0 w-screen shadow-md py-4 z-20">
         <div className="container lg:max-w-[1790px]">
           <div className="flexRow gap-2">
             <div className="lg:hidden w-5 h-5 flexCenter bg-lightGray/10 p-6 rounded-full">

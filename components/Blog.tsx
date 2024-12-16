@@ -1,7 +1,7 @@
 import Link from "next/link";
-import CourseCard from "./CourseCard";
+import BlogCard from "./BlogCard";
 
-export default function LastCourses() {
+export default function Blog() {
   return (
     <section className="mt-14">
       <div className="container">
@@ -21,14 +21,10 @@ export default function LastCourses() {
           </Link>
         </div>
         <div className="gridCols1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-14">
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
+            <BlogCard />
+            <BlogCard />
+            <BlogCard />
+            <BlogCard />
         </div>
       </div>
     </section>
