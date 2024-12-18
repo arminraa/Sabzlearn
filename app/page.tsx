@@ -5,6 +5,7 @@ import PopularCourses from "@/components/PopularCourses";
 import Help from "@/components/Help";
 import NewCourses from "@/components/NewestCourses";
 import Blog from "@/components/Blog";
+import FreeCourses from "@/components/FreeCourses";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Help />
       <NewCourses />
       <Blog />
+      <FreeCourses />
     </main>
   );
 }
