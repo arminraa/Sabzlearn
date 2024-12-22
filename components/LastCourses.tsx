@@ -7,8 +7,8 @@ export default function LastCourses() {
       <div className="container">
         <div className="flexCenter flex-col gap-6  sm:flex-row sm:justify-between">
           <div className="flexCenter flex-col items-start gap-4">
-            <h3 className="font-semibold sm:font-bold text-2xl sm:text-3xl flexCenter flex-row-reverse gap-2">
-              <span>آخرین دوره های سبزلرن</span>
+            <h3 className="dark:text-white text-black font-semibold sm:font-bold text-2xl sm:text-3xl flexCenter flex-row-reverse gap-2">
+              <span className="dark:text-white text-black">آخرین دوره های سبزلرن</span>
               <div className="hidden sm:block w-4 h-4 bg-lightOrange" />
             </h3>
             <h4 className="text-lightGray sm:text-lg">

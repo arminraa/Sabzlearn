@@ -7,7 +7,7 @@ export default function Roadmaps() {
         <div className="flexCenter flex-col gap-6">
           <div className="flexCenter flex-col sm:items-start gap-4 sm:self-start">
             <h3 className="font-semibold sm:font-bold text-2xl sm:text-3xl flexCenter flex-row-reverse gap-2">
-              <span>نقشه راه ها</span>
+              <span className="dark:text-white text-black">نقشه راه ها</span>
               <div className="hidden sm:block w-4 h-4 orange-red-gradient" />
             </h3>
             <h4 className="text-lightGray sm:text-lg">

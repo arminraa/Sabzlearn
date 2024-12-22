@@ -8,16 +8,16 @@ export default function Hero() {
           <img
             src="/images/hero-light.svg"
             alt="Hero-Image"
-            className="w-full max-h-[450px] lg:w-[55%] xl:w-[70%] lg:max-h-[700px] lg:ml-break-out 3xl:ml-auto"
+            className="dark:mix-blend-screen w-full max-h-[450px] lg:w-[55%] xl:w-[70%] lg:max-h-[700px] lg:ml-break-out 3xl:ml-auto"
           />
           <div className=" flex flex-col gap-4 md:gap-8">
-            <h1 className="text-3xl sm:text-4xl sm:leading-[3rem] leading-10 md:leading-[3.5rem] md:text-5xl lg:text-[3.2rem] lg:leading-[4rem] lg:text-start">
+            <h1 className="dark:text-white text-black text-3xl sm:text-4xl sm:leading-[3rem] leading-10 md:leading-[3.5rem] md:text-5xl lg:text-[3.2rem] lg:leading-[4rem] lg:text-start">
               <strong className="md:font-extrabold lg:font-[1000]">
                 آکادمی آموزش <br />
                 برنامه نویسی سبزلرن
               </strong>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-start">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-start dark:text-white text-black">
               با آکادمی خصوصی سبزلرن، علم برنامه نویسی رو با خیال راحت یاد بگیر
               و پیشرفت کن
             </p>
@@ -35,7 +35,7 @@ export default function Hero() {
                     <i className="bi bi-play"></i>
                   </Link>
                 </div>
-                <span className="hidden sm:inline whitespace-nowrap">
+                <span className="hidden sm:inline whitespace-nowrap dark:text-white text-black">
                   دوره های رایگان
                 </span>
               </div>

@@ -16,7 +16,7 @@ export default function NewCourses() {
         <div className="md:flexRow">
           <div className="flexCenter flex-col sm:items-start gap-4 sm:self-start">
             <h3 className="font-semibold sm:font-bold text-2xl sm:text-3xl flexCenter flex-row-reverse gap-2">
-              <span>پرطرفدار ترین دوره ها</span>
+              <span className="dark:text-white text-black">پرطرفدار ترین دوره ها</span>
               <div className="hidden sm:block w-4 h-4 bg-lightGreen" />
             </h3>
             <h4 className="text-lightGray sm:text-lg">

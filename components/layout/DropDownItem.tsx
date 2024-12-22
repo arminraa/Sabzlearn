@@ -35,14 +35,14 @@ export default function DropDownItem({
         <DropdownMenuTrigger className="outline-none">
           <li
             className={`flexCenter gap-2 cursor-pointer transition-colors ${
-              selectedColor === "green" ? "text-lightGreen" : "text-black"
+              selectedColor === "green" ? "text-lightGreen dark:text-lightGreen" : "text-black dark:text-white"
             }`}
           >
             <span>{item.name}</span>
             <i className="bi bi-chevron-down"></i>
           </li>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-48 dropdown-menu-content" align="end">
+        <DropdownMenuContent className="w-48 dropdown-menu-content dark:bg-black" align="end">
           <ul className="w-full flexCenter flex-col items-end gap-4 px-3 py-4">
             {item.sub &&
               item.sub.map((subItem: any) => (

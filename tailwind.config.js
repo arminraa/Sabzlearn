@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: ["selector"],
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -24,6 +24,8 @@ module.exports = {
         lightOrange: "rgb(245,158,11)",
         white: "rgb(255,255,255)",
         black: "rgb(0,0,0)",
+        cardDark: "rgb(36,42,56)",
+
       },
       borderRadius: {
         lg: "var(--radius)",

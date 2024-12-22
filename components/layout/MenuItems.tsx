@@ -31,12 +31,10 @@ export default function MenuItems({
           <div className="flexCenter gap-1">
             <DarkModeButton />
             <button
-              className="w-3 h-3 flexCenter p-6 bg-lightGray/10 rounded-full"
+              className="w-3 h-3 flexCenter p-6 bg-lightGray/10 rounded-full text-xl text-lightGray dark:text-white"
               onClick={() => setMenuShow(false)}
             >
-              <Link href="#" className="text-xl text-lightGray">
-                <i className="bi bi-x"></i>
-              </Link>
+              <i className="bi bi-x"></i>
             </button>
           </div>
         </div>

@@ -40,7 +40,7 @@ export default function Header() {
   };
   return (
     <>
-      <header className="bg-white sticky top-0 right-0 left-0 w-screen shadow-md py-4 z-20">
+      <header className="bg-white dark:bg-gray-900 sticky top-0 right-0 left-0 w-screen shadow-md dark:shadow-xl py-4 z-20">
         <div className="container lg:max-w-[1790px]">
           <div className="flexRow gap-2">
             <div className="lg:hidden w-5 h-5 flexCenter bg-lightGray/10 p-6 rounded-full">
@@ -73,12 +73,12 @@ export default function Header() {
               <SearchInput styles="hidden lg:block" />
               <DarkModeButton styles="hidden lg:flexCenter" />
               <div className="w-5 h-5 flexCenter p-6 bg-lightGray/10 rounded-full">
-                <Link href="#" className="text-2xl text-lightGray">
+                <Link href="#" className="text-2xl text-lightGray dark:text-white">
                   <i className="bi bi-bag"></i>
                 </Link>
               </div>
               <div className="lg:hidden w-5 h-5 flexCenter p-6 bg-lightGray/10 rounded-full">
-                <Link href="#" className="text-2xl text-lightGray">
+                <Link href="#" className="text-2xl text-lightGray dark:text-white">
                   <i className="bi bi-box-arrow-right"></i>
                 </Link>
               </div>
