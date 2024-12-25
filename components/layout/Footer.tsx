@@ -27,7 +27,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="w-full flex justify-start md:justify-start sm:justify-between sm:px-6 gap-x-12 gap-y-2 items-center flex-wrap mt-8">
+        <div className="text-black dark:text-white w-full flex justify-start md:justify-start sm:justify-between sm:px-6 gap-x-12 gap-y-2 items-center flex-wrap mt-8">
           <div className="flex-grow-1 flexCenter justify-start gap-1">
             <i className="bi bi-phone text-lg sm:text-xl"></i>
             <span className="text-sm sm:text-[1rem]">02191030926</span>
@@ -46,7 +46,7 @@ export default function Footer() {
         <div className=" bg-superLightGray/40 w-[95%] sm:w-[98%] h-[1px] mx-auto my-4" />
         <div className="flexCol items-start gap-4 sm:flex-wrap sm:flex-row mt-8">
           <div className="sm:w-[60%] lg:w-[40%]">
-            <h3 className="font-bold sm:text-2xl w-full text-start">
+            <h3 className="text-black dark:text-white font-bold sm:text-2xl w-full text-start">
               درباره سبز لرن
             </h3>
 
@@ -60,7 +60,7 @@ export default function Footer() {
 
           <div className="flexCenter mt-6 lg:mt-0 gap-12 lg:gap-4 items-start">
             <ul className="flex flex-col justify-center items-start gap-2 lg:gap-4">
-              <li className="font-bold sm:text-2xl">دوره های پرطرفدار</li>
+              <li className="font-bold sm:text-2xl text-black dark:text-white">دوره های پرطرفدار</li>
               <li className="text-lightGray dark:text-white/70 text-sm sm:text-[1rem] lg:text-lg">
                 آموزش پایتون
               </li>
@@ -75,7 +75,7 @@ export default function Footer() {
               </li>
             </ul>
             <ul className="flex flex-col justify-center items-start gap-2 lg:gap-4">
-              <li className="font-bold sm:text-2xl">دسترسی سریع</li>
+              <li className="font-bold sm:text-2xl dark:text-white text-black">دسترسی سریع</li>
               <li className="text-lightGray dark:text-white/70 text-sm sm:text-[1rem] whitespace-nowrap">
                 قوانین و مقررات
               </li>
@@ -94,7 +94,7 @@ export default function Footer() {
           />
         </div>
 
-        <div className="flexCenter flex-col sm:flex-row sm:justify-between mt-8 gap-3">
+        <div className="text-black dark:text-white flexCenter flex-col sm:flex-row sm:justify-between mt-8 gap-3">
           <span className="w-full text-center inline-block">
             کلیه حقوق مادی و معنوی سایت برای سبز لرن محفوظ است.
           </span>

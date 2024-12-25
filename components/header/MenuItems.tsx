@@ -7,9 +7,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import SearchInput from "../SearchInput";
-import DarkModeButton from "../DarkModeButton";
-
+import DarkModeButton from "./DarkModeButton";
+import SearchInput from "./SearchInput";
 export default function MenuItems({
   setMenuShow,
 }: Readonly<{
@@ -39,7 +38,7 @@ export default function MenuItems({
           </div>
         </div>
         <div className="bg-lightGray/40 w-full h-[1px]" />
-        <SearchInput />
+        <SearchInput inputStyles="rounded-2xl lg:rounded-3xl py-2 lg:py-[12px] px-4" />
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger className="focus-within:outline-0">

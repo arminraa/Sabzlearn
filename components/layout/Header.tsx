@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import Menu from "./Menu";
-import DropDownItem from "./DropDownItem";
 import { useState } from "react";
-import SearchInput from "../SearchInput";
-import DarkModeButton from "../DarkModeButton";
+import DropDownItem from "../header/DropDownItem";
+import Menu from "../header/Menu";
+import SearchInput from "../header/SearchInput";
+import DarkModeButton from "../header/DarkModeButton";
 
 export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
@@ -47,7 +47,7 @@ export default function Header() {
               <Menu />
             </div>
 
-            <Link href="#" className="sm:mx-auto lg:mx-0">
+            <Link href="/" className="sm:mx-auto lg:mx-0">
               <Image
                 src="/images/logo.webp"
                 width={90}
@@ -70,15 +70,21 @@ export default function Header() {
             </div>
 
             <div className="flexCenter gap-4">
-              <SearchInput styles="hidden lg:block" />
+              <SearchInput styles="hidden lg:block" inputStyles="rounded-2xl lg:rounded-3xl py-2 lg:py-[12px] px-4" />
               <DarkModeButton styles="hidden lg:flexCenter" />
               <div className="w-5 h-5 flexCenter p-6 bg-lightGray/10 rounded-full">
-                <Link href="#" className="text-2xl text-lightGray dark:text-white">
+                <Link
+                  href="#"
+                  className="text-2xl text-lightGray dark:text-white"
+                >
                   <i className="bi bi-bag"></i>
                 </Link>
               </div>
               <div className="lg:hidden w-5 h-5 flexCenter p-6 bg-lightGray/10 rounded-full">
-                <Link href="#" className="text-2xl text-lightGray dark:text-white">
+                <Link
+                  href="#"
+                  className="text-2xl text-lightGray dark:text-white"
+                >
                   <i className="bi bi-box-arrow-right"></i>
                 </Link>
               </div>

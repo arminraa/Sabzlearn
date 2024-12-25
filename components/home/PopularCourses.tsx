@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
-import CourseCard from "./CourseCard";
+import CourseCard from "../CourseCard";
 import { useState } from "react";
 
 export default function PopularCourses() {

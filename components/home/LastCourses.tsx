@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CourseCard from "./CourseCard";
+import CourseCard from "../CourseCard";
 
 export default function LastCourses() {
   return (

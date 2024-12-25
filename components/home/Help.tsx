@@ -16,10 +16,10 @@ export default function Help() {
           </div>
           <div className="bg-lightOrange"/>
           <div className="gridCols1 md:grid-cols-2 gap-6 w-full mt-8">
-            {/* <HelpCard icon="bi bi-book" color="lightBlue" textColor="text-lightBlue" />
-            <HelpCard icon="bi bi-chat-left" color="lightGreen" />
-            <HelpCard icon="bi bi-bar-chart" color="lightBlue" />
-            <HelpCard icon="bi bi-clipboard-check" color="lightGreen" /> */}
+            <HelpCard icon="bi bi-book" color="bg-lightBlue/20" textColor="text-lightBlue" />
+            <HelpCard icon="bi bi-chat-left" color="bg-lightOrange/20" textColor="text-lightOrange" />
+            <HelpCard icon="bi bi-bar-chart" color="bg-lightGreen/20" textColor="text-lightGreen" />
+            <HelpCard icon="bi bi-clipboard-check" color="bg-red-600/20" textColor="text-red-600"  />
           </div>
         </div>
       </div>
