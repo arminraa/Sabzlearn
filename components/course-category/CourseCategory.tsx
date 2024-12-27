@@ -25,7 +25,7 @@ export default function CourseCategory() {
 
           <span className="lg:text-xl text-lightGray">۲۹ عنوان آموزشی</span>
         </div>
-        <div className="w-full lg:mt-10">
+        <div className="w-full mt-6 lg:mt-10">
           <div className="w-full flexCenter lg:items-start flex-wrap lg:flex-nowrap gap-4 xl:gap-10 sm:gap-5">
             <div className="lg:w-[30%] xl:w-[25%] w-full flexCenter flex-wrap gap-4 sm:gap-5">
               <SearchInput
