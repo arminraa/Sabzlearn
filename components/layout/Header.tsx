@@ -40,10 +40,10 @@ export default function Header() {
   };
   return (
     <>
-      <header className="bg-white dark:bg-gray-900 sticky top-0 right-0 left-0 w-screen shadow-md dark:shadow-xl py-4 z-20">
+      <header className="sticky left-0 right-0 top-0 z-20 w-screen bg-white py-4 shadow-md dark:bg-gray-900 dark:shadow-xl">
         <div className="container lg:max-w-[1790px]">
           <div className="flexRow gap-2">
-            <div className="lg:hidden w-5 h-5 flexCenter bg-lightGray/10 p-6 rounded-full">
+            <div className="flexCenter h-5 w-5 rounded-full bg-lightGray/10 p-6 lg:hidden">
               <Menu />
             </div>
 
@@ -56,7 +56,7 @@ export default function Header() {
                 priority
               />
             </Link>
-            <div className="hidden lg:flexCenter gap-4 lg:ml-auto lg:pr-4">
+            <div className="lg:flexCenter hidden gap-4 lg:ml-auto lg:pr-4">
               {items &&
                 items.map((item) => (
                   <DropDownItem
@@ -70,9 +70,12 @@ export default function Header() {
             </div>
 
             <div className="flexCenter gap-4">
-              <SearchInput styles="hidden lg:block" inputStyles="rounded-2xl lg:rounded-3xl py-2 lg:py-[12px] px-4" />
+              <SearchInput
+                styles="hidden lg:block"
+                inputStyles="rounded-2xl lg:rounded-3xl py-2 lg:py-[12px] px-4"
+              />
               <DarkModeButton styles="hidden lg:flexCenter" />
-              <div className="w-5 h-5 flexCenter p-6 bg-lightGray/10 rounded-full">
+              <div className="flexCenter h-5 w-5 rounded-full bg-lightGray/10 p-6">
                 <Link
                   href="#"
                   className="text-2xl text-lightGray dark:text-white"
@@ -80,7 +83,7 @@ export default function Header() {
                   <i className="bi bi-bag"></i>
                 </Link>
               </div>
-              <div className="lg:hidden w-5 h-5 flexCenter p-6 bg-lightGray/10 rounded-full">
+              <div className="flexCenter h-5 w-5 rounded-full bg-lightGray/10 p-6 lg:hidden">
                 <Link
                   href="#"
                   className="text-2xl text-lightGray dark:text-white"
@@ -88,7 +91,7 @@ export default function Header() {
                   <i className="bi bi-box-arrow-right"></i>
                 </Link>
               </div>
-              <button className="hidden lg:flexCenter bg-lightBlue text-white px-5 font-bold py-[10px] rounded-3xl gap-1">
+              <button className="lg:flexCenter hidden gap-1 rounded-3xl bg-lightBlue px-5 py-[10px] font-bold text-white">
                 <i className="bi bi-person text-2xl"></i>
                 ورود / عضویت
               </button>

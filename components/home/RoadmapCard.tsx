@@ -14,10 +14,10 @@ export default function RoadmapCard({
     | "blue-purple-gradient";
 }>) {
   return (
-    <article className={`flexCenter rounded-xl ${color} h-[145px] p-6 w-full`}>
+    <article className={`flexCenter rounded-xl ${color} h-[145px] w-full p-6`}>
       <div className="flexCol text-white">
         <i className={`${icon} text-3xl`}></i>
-        <span className="text-lg font-semibold whitespace-nowrap">{title}</span>
+        <span className="whitespace-nowrap text-lg font-semibold">{title}</span>
         <span className="whitespace-nowrap">{quantity}</span>
       </div>
     </article>

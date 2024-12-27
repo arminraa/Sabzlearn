@@ -5,36 +5,36 @@ import { useState } from "react";
 export default function BlogCard() {
   const [textGreen, setTextGreen] = useState(false);
   return (
-    <article className="bg-white dark:bg-cardDark w-full rounded-xl">
-      <div className="h-[168px] w-full relative">
+    <article className="w-full rounded-xl bg-white dark:bg-cardDark">
+      <div className="relative h-[168px] w-full">
         <img
           src="/images/English22-1-768x432.webp"
-          className="rounded-t-xl rounded-b-none object-cover w-full h-full"
+          className="h-full w-full rounded-b-none rounded-t-xl object-cover"
           alt="Card-Image"
         />
-        <div className="dark:hidden absolute inset-0 w-full h-full bg-gradient-to-t from-white/100 to-white/0" />
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-t from-white/100 to-white/0 dark:hidden" />
       </div>
-      <div className="topShadow p-4 flex flex-col gap-4">
-        <h3 className="font-semibold w-full text-right">
+      <div className="topShadow flex flex-col gap-4 p-4">
+        <h3 className="w-full text-right font-semibold">
           آموزش جامع زبان انگلیسی
         </h3>
-        <p className="w-full text-right text-superLightGray dark:text-white/70 text-sm leading-7">
+        <p className="w-full text-right text-sm leading-7 text-superLightGray dark:text-white/70">
           با دوره جامع آموزش زبان انگلیسی سبزلرن، زبان انگلیسی را برای پیشرفت در
           برنامه‌نویسی حرفه‌ای یاد بگیرید و مهارت‌های خود…
         </p>
         <div className="flexRow">
-          <div className="text-superLightGray text-sm flexCenter gap-1 dark:text-white/70">
+          <div className="flexCenter gap-1 text-sm text-superLightGray dark:text-white/70">
             <i className="bi bi-person text-xl"></i>
             <span>بهادر عرب</span>
           </div>
-          <div className="text-superLightGray text-sm flexCenter gap-1 dark:text-white/70">
+          <div className="flexCenter gap-1 text-sm text-superLightGray dark:text-white/70">
             <i className="bi bi-calendar text-lg"></i>
             <span>۱۴۰۳/۰۹/۲۲</span>
           </div>
         </div>
-        <div className="w-[95%] mx-auto h-[1px] rounded-md overflow-hidden bg-superLightGray"></div>
+        <div className="mx-auto h-[1px] w-[95%] overflow-hidden rounded-md bg-superLightGray"></div>
         <div
-          className={`${textGreen ? "text-lightGreen" : "text-black dark:text-white"} transition-colors flexCenter gap-1 cursor-pointer`}
+          className={`${textGreen ? "text-lightGreen" : "text-black dark:text-white"} flexCenter cursor-pointer gap-1 transition-colors`}
           onMouseEnter={() => setTextGreen(true)}
           onMouseLeave={() => setTextGreen(false)}
         >
@@ -42,7 +42,7 @@ export default function BlogCard() {
           <span
             className={`${
               textGreen ? "bg-lightGreen" : "bg-black dark:bg-white"
-            } transition-colors rounded-full h-[20px] w-[20px] flexCenter`}
+            } flexCenter h-[20px] w-[20px] rounded-full transition-colors`}
           >
             <i className="bi bi-arrow-left text-white dark:text-black" />
           </span>

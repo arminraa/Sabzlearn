@@ -12,16 +12,18 @@ export default function NewCourses() {
     <section className="mt-14">
       <div className="container">
         <div className="md:flexRow">
-          <div className="flexCenter flex-col sm:items-start gap-4 sm:self-start">
-            <h3 className="font-semibold sm:font-bold text-2xl sm:text-3xl flexCenter flex-row-reverse gap-2">
-              <span className="dark:text-white text-black">پرطرفدار ترین دوره ها</span>
-              <div className="hidden sm:block w-4 h-4 bg-lightGreen" />
+          <div className="flexCenter flex-col gap-4 sm:items-start sm:self-start">
+            <h3 className="flexCenter flex-row-reverse gap-2 text-2xl font-semibold sm:text-3xl sm:font-bold">
+              <span className="text-black dark:text-white">
+                پرطرفدار ترین دوره ها
+              </span>
+              <div className="hidden h-4 w-4 bg-lightGreen sm:block" />
             </h3>
             <h4 className="text-lightGray sm:text-lg">
               دوره های محبوب و پروژه محور سبزلرن
             </h4>
           </div>
-          <div className="md:flexCenter gap-2 hidden">
+          <div className="md:flexCenter hidden gap-2">
             <span
               onClick={() => swiperInstance.slidePrev()}
               className="swiperArrow"
@@ -80,7 +82,7 @@ export default function NewCourses() {
             <CourseCard />
           </SwiperSlide>
         </Swiper>
-        <div className="flexCenter gap-2 mt-6 md:hidden">
+        <div className="flexCenter mt-6 gap-2 md:hidden">
           <span
             onClick={() => swiperInstance.slidePrev()}
             className="swiperArrow"

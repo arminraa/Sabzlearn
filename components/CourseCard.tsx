@@ -3,44 +3,44 @@ import Link from "next/link";
 export default function CourseCard() {
   return (
     <Link href="/course/eng-course">
-      <article className="bg-white dark:bg-cardDark w-full rounded-xl">
+      <article className="w-full rounded-xl bg-white dark:bg-cardDark">
         <img
           src="/images/English22-1-768x432.webp"
-          className="rounded-xl h-[168px] w-full object-cover"
+          className="h-[168px] w-full rounded-xl object-cover"
           alt="Card-Image"
         />
-        <div className="p-4 flex flex-col gap-4">
-          <h3 className="font-semibold w-full text-right dark:text-white text-black h-[24px] overflow-hidden">
+        <div className="flex flex-col gap-4 p-4">
+          <h3 className="h-[24px] w-full overflow-hidden text-right font-semibold text-black dark:text-white">
             آموزش جامع زبان انگلیسی
           </h3>
-          <p className="w-full h-[50px] overflow-hidden text-right text-superLightGray/90 dark:text-white/70 text-sm leading-7">
+          <p className="h-[50px] w-full overflow-hidden text-right text-sm leading-7 text-superLightGray/90 dark:text-white/70">
             ا دوره جامع آموزش زبان انگلیسی سبزلرن، زبان انگلیسی را برای پیشرفت
             در برنامه‌نویسی حرفه‌ای یاد بگیرید و مهارت‌های خود…
           </p>
           <div className="flexRow">
-            <div className="text-superLightGray dark:text-white/70 text-sm flexCenter gap-1">
+            <div className="flexCenter gap-1 text-sm text-superLightGray dark:text-white/70">
               <i className="bi bi-person text-xl"></i>
               <span>بهادر عرب</span>
             </div>
-            <div className="text-lightOrange text-sm flexCenter gap-1">
+            <div className="flexCenter gap-1 text-sm text-lightOrange">
               <span>۵.۰</span>
               <i className="bi bi-star-fill text-xl"></i>
             </div>
           </div>
-          <div className="w-[95%] mx-auto h-[1px] rounded-md overflow-hidden bg-superLightGray dark:bg-white/70"></div>
+          <div className="mx-auto h-[1px] w-[95%] overflow-hidden rounded-md bg-superLightGray dark:bg-white/70"></div>
           <div className="flexRow relative">
-            <del className="text-superLightGray dark:text-white/70 pl-2 absolute -top-4 left-4">
+            <del className="absolute -top-4 left-4 pl-2 text-superLightGray dark:text-white/70">
               ۳۷,۰۰۰
             </del>
-            <div className="text-superLightGray dark:text-white/70 flexCenter gap-1">
+            <div className="flexCenter gap-1 text-superLightGray dark:text-white/70">
               <i className="bi bi-people text-xl"></i>
               <span>۶۸</span>
             </div>
-            <div className="text-lightGreen flexCenter gap-1">
-              <span className="font-semibold text-lg">۳۷,۰۰۰</span>
+            <div className="flexCenter gap-1 text-lightGreen">
+              <span className="text-lg font-semibold">۳۷,۰۰۰</span>
 
               <img
-                className="w-3.5 h-3.5"
+                className="h-3.5 w-3.5"
                 src="/images/svgexport-21.svg"
                 alt="Toman"
               />

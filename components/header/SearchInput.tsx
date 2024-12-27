@@ -11,10 +11,10 @@ export default function SearchInput({
     <div className={`${styles} relative`}>
       <input
         type="text"
-        className={`${inputStyles} bg-lightGray/10 focus:outline-none w-full`}
+        className={`${inputStyles} w-full bg-lightGray/10 focus:outline-none`}
         placeholder={placeholder ? placeholder : "چیو میخوای یادبگیری ؟"}
       />
-      <span className="absolute top-1/2 left-[10px] -translate-y-1/2 text-black/50 dark:text-white text-lg">
+      <span className="absolute left-[10px] top-1/2 -translate-y-1/2 text-lg text-black/50 dark:text-white">
         <i className="bi bi-search" />
       </span>
     </div>

@@ -1,33 +1,33 @@
 export default function Footer() {
   return (
-    <footer className="w-full bg-white dark:bg-cardDark mt-10 py-8">
+    <footer className="mt-10 w-full bg-white py-8 dark:bg-cardDark">
       <div className="container">
         <div className="flexRow">
           <div className="flexCenter gap-3">
             <img
               src="/images/logo.webp"
-              className="w-[55px] sm:w-[70px] h-[55px] sm:h-[70px] object-contain"
+              className="h-[55px] w-[55px] object-contain sm:h-[70px] sm:w-[70px]"
               alt="Logo"
             />
             <img
               src="/images/svgexport-37.svg"
-              className="dark:mix-blend-screen w-[55px] sm:w-[100px] h-[55px] sm:h-[100px] object-contain"
+              className="h-[55px] w-[55px] object-contain sm:h-[100px] sm:w-[100px] dark:mix-blend-screen"
               alt="Text-Logo"
             />
           </div>
           <ul className="flexCenter gap-2">
-            <li className="bg-superLightGray/40 dark:bg-white/90 w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] rounded-full flexCenter dark:text-black text-white">
+            <li className="flexCenter h-[30px] w-[30px] rounded-full bg-superLightGray/40 text-white sm:h-[40px] sm:w-[40px] dark:bg-white/90 dark:text-black">
               <i className="bi bi-linkedin sm:text-xl"></i>
             </li>
-            <li className="bg-superLightGray/40 dark:bg-white/90 w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] rounded-full flexCenter dark:text-black text-white">
+            <li className="flexCenter h-[30px] w-[30px] rounded-full bg-superLightGray/40 text-white sm:h-[40px] sm:w-[40px] dark:bg-white/90 dark:text-black">
               <i className="bi bi-instagram sm:text-xl"></i>
             </li>
-            <li className="bg-superLightGray/40 dark:bg-white/90 w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] rounded-full flexCenter dark:text-black text-white">
+            <li className="flexCenter h-[30px] w-[30px] rounded-full bg-superLightGray/40 text-white sm:h-[40px] sm:w-[40px] dark:bg-white/90 dark:text-black">
               <i className="bi bi-telegram sm:text-xl"></i>
             </li>
           </ul>
         </div>
-        <div className="text-black dark:text-white w-full flex justify-start md:justify-start sm:justify-between sm:px-6 gap-x-12 gap-y-2 items-center flex-wrap mt-8">
+        <div className="mt-8 flex w-full flex-wrap items-center justify-start gap-x-12 gap-y-2 text-black sm:justify-between sm:px-6 md:justify-start dark:text-white">
           <div className="flex-grow-1 flexCenter justify-start gap-1">
             <i className="bi bi-phone text-lg sm:text-xl"></i>
             <span className="text-sm sm:text-[1rem]">02191030926</span>
@@ -43,14 +43,14 @@ export default function Footer() {
             </span>
           </div>
         </div>
-        <div className=" bg-superLightGray/40 w-[95%] sm:w-[98%] h-[1px] mx-auto my-4" />
-        <div className="flexCol items-start gap-4 sm:flex-wrap sm:flex-row mt-8">
+        <div className="mx-auto my-4 h-[1px] w-[95%] bg-superLightGray/40 sm:w-[98%]" />
+        <div className="flexCol mt-8 items-start gap-4 sm:flex-row sm:flex-wrap">
           <div className="sm:w-[60%] lg:w-[40%]">
-            <h3 className="text-black dark:text-white font-bold sm:text-2xl w-full text-start">
+            <h3 className="w-full text-start font-bold text-black sm:text-2xl dark:text-white">
               درباره سبز لرن
             </h3>
 
-            <p className="w-full sm:text-lg text-start text-lightGray dark:text-white/70 lg:mt-4">
+            <p className="w-full text-start text-lightGray sm:text-lg lg:mt-4 dark:text-white/70">
               شروع هرچیزی سخته، ولی وقتی مسیر درستی رو انتخاب کنی با خیال راحت و
               بدون استرس میتونی از مسیر لذت ببری. ما در سبزلرن، توی سفر به دنیای
               برنامه نویسی کنارت هستیم تا باهم رشد کنیم و از نتیجه زحمات مون لذت
@@ -58,47 +58,51 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flexCenter mt-6 lg:mt-0 gap-12 lg:gap-4 items-start">
-            <ul className="flex flex-col justify-center items-start gap-2 lg:gap-4">
-              <li className="font-bold sm:text-2xl text-black dark:text-white">دوره های پرطرفدار</li>
-              <li className="text-lightGray dark:text-white/70 text-sm sm:text-[1rem] lg:text-lg">
+          <div className="flexCenter mt-6 items-start gap-12 lg:mt-0 lg:gap-4">
+            <ul className="flex flex-col items-start justify-center gap-2 lg:gap-4">
+              <li className="font-bold text-black sm:text-2xl dark:text-white">
+                دوره های پرطرفدار
+              </li>
+              <li className="text-sm text-lightGray sm:text-[1rem] lg:text-lg dark:text-white/70">
                 آموزش پایتون
               </li>
-              <li className="text-lightGray dark:text-white/70 text-sm sm:text-[1rem] lg:text-lg">
+              <li className="text-sm text-lightGray sm:text-[1rem] lg:text-lg dark:text-white/70">
                 آموزش Html
               </li>
-              <li className="text-lightGray dark:text-white/70 text-sm sm:text-[1rem] lg:text-lg">
+              <li className="text-sm text-lightGray sm:text-[1rem] lg:text-lg dark:text-white/70">
                 آموزش Css
               </li>
-              <li className="text-lightGray dark:text-white/70 text-sm sm:text-[1rem] lg:text-lg">
+              <li className="text-sm text-lightGray sm:text-[1rem] lg:text-lg dark:text-white/70">
                 پروژه های خلاقانه با Html و Css
               </li>
             </ul>
-            <ul className="flex flex-col justify-center items-start gap-2 lg:gap-4">
-              <li className="font-bold sm:text-2xl dark:text-white text-black">دسترسی سریع</li>
-              <li className="text-lightGray dark:text-white/70 text-sm sm:text-[1rem] whitespace-nowrap">
+            <ul className="flex flex-col items-start justify-center gap-2 lg:gap-4">
+              <li className="font-bold text-black sm:text-2xl dark:text-white">
+                دسترسی سریع
+              </li>
+              <li className="whitespace-nowrap text-sm text-lightGray sm:text-[1rem] dark:text-white/70">
                 قوانین و مقررات
               </li>
-              <li className="text-lightGray dark:text-white/70 text-sm sm:text-[1rem] lg:text-lg">
+              <li className="text-sm text-lightGray sm:text-[1rem] lg:text-lg dark:text-white/70">
                 ارسال تیکت
               </li>
-              <li className="text-lightGray dark:text-white/70 text-sm sm:text-[1rem] lg:text-lg">
+              <li className="text-sm text-lightGray sm:text-[1rem] lg:text-lg dark:text-white/70">
                 همه دوره ها
               </li>
             </ul>
           </div>
           <img
             src="/images/enamad.png"
-            className="w-[150px] h-[150px] sm:w-[170px] sm:h-[170px] object-contain"
+            className="h-[150px] w-[150px] object-contain sm:h-[170px] sm:w-[170px]"
             alt="Enamad"
           />
         </div>
 
-        <div className="text-black dark:text-white flexCenter flex-col sm:flex-row sm:justify-between mt-8 gap-3">
-          <span className="w-full text-center inline-block">
+        <div className="flexCenter mt-8 flex-col gap-3 text-black sm:flex-row sm:justify-between dark:text-white">
+          <span className="inline-block w-full text-center">
             کلیه حقوق مادی و معنوی سایت برای سبز لرن محفوظ است.
           </span>
-          <span className="text-center w-full inline-block">
+          <span className="inline-block w-full text-center">
             ساخته شده با ❤️ توسط آرمین
           </span>
         </div>

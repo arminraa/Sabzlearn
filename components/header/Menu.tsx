@@ -15,7 +15,7 @@ export default function Menu() {
         className={`${
           menuShow ? "absolute" : "hidden"
           // Check after finish
-        } right-0 left-0 -bottom-[1000%] top-0 bg-black/40`}
+        } -bottom-[1000%] left-0 right-0 top-0 bg-black/40`}
         onClick={() => setMenuShow(false)}
       />
       <button
@@ -34,7 +34,7 @@ export default function Menu() {
         id="menu"
         className={`${
           menuShow ? "right-0" : "-right-full"
-        } transition-all absolute bg-white dark:bg-gray-900 z-[50] top-0 h-screen w-[80%] max-w-[250px]`}
+        } absolute top-0 z-[50] h-screen w-[80%] max-w-[250px] bg-white transition-all dark:bg-gray-900`}
       >
         <MenuItems setMenuShow={setMenuShow} />
       </div>

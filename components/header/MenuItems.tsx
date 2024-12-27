@@ -15,7 +15,7 @@ export default function MenuItems({
   setMenuShow: (value: boolean) => void;
 }>) {
   return (
-    <div className="container py-4 relative">
+    <div className="container relative py-4">
       <div className="flex flex-col justify-center gap-6">
         <div className="flexRow">
           <Link href="#">
@@ -30,14 +30,14 @@ export default function MenuItems({
           <div className="flexCenter gap-1">
             <DarkModeButton />
             <button
-              className="w-3 h-3 flexCenter p-6 bg-lightGray/10 rounded-full text-xl text-lightGray dark:text-white"
+              className="flexCenter h-3 w-3 rounded-full bg-lightGray/10 p-6 text-xl text-lightGray dark:text-white"
               onClick={() => setMenuShow(false)}
             >
               <i className="bi bi-x"></i>
             </button>
           </div>
         </div>
-        <div className="bg-lightGray/40 w-full h-[1px]" />
+        <div className="h-[1px] w-full bg-lightGray/40" />
         <SearchInput inputStyles="rounded-2xl lg:rounded-3xl py-2 lg:py-[12px] px-4" />
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
@@ -45,7 +45,7 @@ export default function MenuItems({
               فرانت اند
             </AccordionTrigger>
             <AccordionContent>
-              <ul className="bg-lightGray/15 rounded-lg px-4 py-2 flex flex-col justify-center gap-6">
+              <ul className="flex flex-col justify-center gap-6 rounded-lg bg-lightGray/15 px-4 py-2">
                 <li>آموزش HTML</li>
                 <li>آموزش CSS</li>
                 <li>آموزش JS</li>

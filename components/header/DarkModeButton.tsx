@@ -5,7 +5,6 @@ export default function DarkModeButton({
 }: Readonly<{
   styles?: string;
 }>) {
-
   const handleDarkMode = () => {
     if (document.documentElement.classList.contains("dark")) {
       localStorage.setItem("theme", "light");
@@ -17,7 +16,7 @@ export default function DarkModeButton({
   };
   return (
     <button
-      className={`${styles} lg:w-5 lg:h-5 w-3 flexCenter h-3 p-6 bg-lightGray/10 rounded-full text-xl lg:text-2xl text-lightGray dark:text-white`}
+      className={`${styles} flexCenter h-3 w-3 rounded-full bg-lightGray/10 p-6 text-xl text-lightGray lg:h-5 lg:w-5 lg:text-2xl dark:text-white`}
       type="button"
       onClick={() => handleDarkMode()}
     >
