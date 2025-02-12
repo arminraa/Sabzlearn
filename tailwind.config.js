@@ -25,7 +25,6 @@ module.exports = {
         white: "rgb(255,255,255)",
         black: "rgb(0,0,0)",
         cardDark: "rgb(36,42,56)",
-
       },
       borderRadius: {
         lg: "var(--radius)",

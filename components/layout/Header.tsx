@@ -91,10 +91,10 @@ export default function Header() {
                   <i className="bi bi-box-arrow-right"></i>
                 </Link>
               </div>
-              <button className="lg:flexCenter hidden gap-1 rounded-3xl bg-lightBlue px-5 py-[10px] font-bold text-white">
+              <Link href="/login" className="lg:flexCenter hidden gap-1 rounded-3xl bg-lightBlue px-5 py-[10px] font-bold text-white">
                 <i className="bi bi-person text-2xl"></i>
                 ورود / عضویت
-              </button>
+              </Link>
             </div>
           </div>
         </div>

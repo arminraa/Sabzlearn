@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "next-themes";
@@ -16,13 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl" suppressHydrationWarning>
-      <body className="dark:bg-gray-900 dark:text-white bg-lightGray/15 overflow-x-hidden">
+      <body className="overflow-x-hidden bg-lightGray/15 dark:bg-gray-900 dark:text-white">
         <ThemeProvider attribute="class">
           <Header />
           {children}
           <Footer />
         </ThemeProvider>
-        <div className="w-[60px] h-[60px] rounded-full bg-lightBlue hover:bg-lightBlue/70 transition-colors fixed flexCenter bottom-4 left-4 cursor-pointer">
+        <div className="flexCenter fixed bottom-4 left-4 h-[60px] w-[60px] cursor-pointer rounded-full bg-lightBlue transition-colors hover:bg-lightBlue/70">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="30"
