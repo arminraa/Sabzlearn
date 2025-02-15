@@ -24,7 +24,8 @@
     "swiper": "^11.1.15",
     "tailwind-container-break-out": "^2.0.9",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "topersiannumber": "^1.0.5"
   },
   "devDependencies": {
     "@types/node": "^20",
