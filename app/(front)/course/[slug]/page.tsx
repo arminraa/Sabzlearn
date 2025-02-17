@@ -1,11 +1,24 @@
+"use client";
 import Breadcrumb from "@/components/course/Breadcrumb";
 import CopyLink from "@/components/course/CopyLink";
 import CourseDescription from "@/components/course/CourseDescription";
 import SaleBanner from "@/components/course/SaleBanner";
 import GreenBorderButton from "@/components/layout/GreenBorderButton";
-
+import { useState } from "react";
 
 export default function CoursePage() {
+  const [showAccordionContent, setShowAccordionContent] = useState<number[]>(
+    [],
+  );
+  const handleAccordion = (index: number) => {
+    let temp: number[] = [];
+    if (showAccordionContent.includes(index)) {
+      temp = showAccordionContent.filter((item: number) => item !== index);
+      setShowAccordionContent(temp);
+    } else {
+      setShowAccordionContent([...showAccordionContent, index]);
+    }
+  };
   return (
     <section className="min-h-screen w-screen">
       <div className="container mt-10 xl:max-w-[95%] 2xl:max-w-[75%] 3xl:max-w-[70%] 4xl:max-w-[40%]">
@@ -142,7 +155,146 @@ export default function CoursePage() {
               <GreenBorderButton title="مشاهده پروفایل من" />
             </div>
             <CopyLink />
-
+          </div>
+          <div className="flexCol col-span-12 flex items-stretch gap-2 rounded-md bg-white p-4 lg:col-span-9 lg:gap-4">
+            <h3 className="flexCenter my-4 flex-row-reverse justify-end gap-2 text-xl font-semibold text-black sm:text-2xl sm:font-bold dark:text-white">
+              <span className="text-black">سرفصل ها</span>
+              <div className="hidden h-4 w-4 bg-lightBlue sm:block" />
+            </h3>
+            <article>
+              <button
+                onClick={() => handleAccordion(1)}
+                className={`${showAccordionContent.includes(1) ? "rounded-t-md bg-gray-500 text-white" : "rounded-md bg-gray-200"} flexRow w-full p-5 transition-all`}
+              >
+                <span>فصل دوم</span>
+                <div className="flexCenter gap-2">
+                  <span
+                    className={`${showAccordionContent.includes(1) ? "text-white" : "text-lightGray"} hidden text-sm lg:inline`}
+                    dir="ltr"
+                  >
+                    22 lesson . 5h 15m
+                  </span>
+                  <i
+                    className={`${showAccordionContent.includes(1) ? "bi bi-chevron-up" : "bi bi-chevron-down"} text-lg`}
+                  ></i>
+                </div>
+              </button>
+              <div
+                className={`${showAccordionContent.includes(1) ? "h-[250px]" : "h-0"} box-border overflow-auto rounded-b-md bg-gray-100 transition-all`}
+              >
+                <ul className="h-full w-full">
+                  <li className="flexCenter flexRow w-full flex-col gap-6 p-2 xs:flex-row">
+                    <div className="flexCenter w-full justify-start gap-4">
+                      <span className="flexCenter h-[12px] w-[12px] rounded-md bg-white p-4 text-black md:p-5">
+                        ۱
+                      </span>
+                      <p className="text-sm md:text-[1rem]">
+                        معرفی دوره + نگاه کلی به پروژه دوره
+                      </p>
+                    </div>
+                    <div className="flexCenter ml-2 gap-2 self-end md:gap-3">
+                      <span className="text-sm md:text-[1rem]">۲۰:۲۷</span>
+                      <i className="bi bi-play-circle text-xl md:text-2xl"></i>
+                    </div>
+                  </li>
+                  <div className="h-[1px] w-full bg-gray-200" />
+                </ul>
+              </div>
+            </article>
+            <article>
+              <button
+                onClick={() => handleAccordion(2)}
+                className={`${showAccordionContent.includes(2) ? "rounded-t-md bg-gray-500 text-white" : "rounded-md bg-gray-200"} flexRow w-full p-5 transition-all`}
+              >
+                <span>فصل دوم</span>
+                <div className="flexCenter gap-2">
+                  <span
+                    className={`${showAccordionContent.includes(2) ? "text-white" : "text-lightGray"} hidden text-sm lg:inline`}
+                    dir="ltr"
+                  >
+                    22 lesson . 5h 15m
+                  </span>
+                  <i
+                    className={`${showAccordionContent.includes(2) ? "bi bi-chevron-up" : "bi bi-chevron-down"} text-lg`}
+                  ></i>
+                </div>
+              </button>
+              <div
+                className={`${showAccordionContent.includes(2) ? "h-[250px]" : "h-0"} box-border overflow-auto rounded-b-md bg-gray-100 transition-all`}
+              >
+                <ul className="h-full w-full">
+                  <li className="flexCenter flexRow w-full flex-col gap-6 p-2 xs:flex-row">
+                    <div className="flexCenter w-full justify-start gap-4">
+                      <span className="flexCenter h-[12px] w-[12px] rounded-md bg-white p-4 text-black md:p-5">
+                        ۱
+                      </span>
+                      <p className="text-sm md:text-[1rem]">
+                        معرفی دوره + نگاه کلی به پروژه دوره
+                      </p>
+                    </div>
+                    <div className="flexCenter ml-2 gap-2 self-end md:gap-3">
+                      <span className="text-sm md:text-[1rem]">۲۰:۲۷</span>
+                      <i className="bi bi-play-circle text-xl md:text-2xl"></i>
+                    </div>
+                  </li>
+                  <div className="h-[1px] w-full bg-gray-200" />
+                </ul>
+              </div>
+            </article>
+            <article>
+              <button
+                onClick={() => handleAccordion(3)}
+                className={`${showAccordionContent.includes(3) ? "rounded-t-md bg-gray-500 text-white" : "rounded-md bg-gray-200"} flexRow w-full p-5 transition-all`}
+              >
+                <span>فصل دوم</span>
+                <div className="flexCenter gap-2">
+                  <span
+                    className={`${showAccordionContent.includes(3) ? "text-white" : "text-lightGray"} hidden text-sm lg:inline`}
+                    dir="ltr"
+                  >
+                    22 lesson . 5h 15m
+                  </span>
+                  <i
+                    className={`${showAccordionContent.includes(3) ? "bi bi-chevron-up" : "bi bi-chevron-down"} text-lg`}
+                  ></i>
+                </div>
+              </button>
+              <div
+                className={`${showAccordionContent.includes(3) ? "h-[250px]" : "h-0"} box-border overflow-auto rounded-b-md bg-gray-100 transition-all`}
+              >
+                <ul className="h-full w-full">
+                  <li className="flexCenter flexRow w-full flex-col gap-6 p-2 xs:flex-row">
+                    <div className="flexCenter w-full justify-start gap-4">
+                      <span className="flexCenter h-[12px] w-[12px] rounded-md bg-white p-4 text-black md:p-5">
+                        ۱
+                      </span>
+                      <p className="text-sm md:text-[1rem]">
+                        معرفی دوره + نگاه کلی به پروژه دوره
+                      </p>
+                    </div>
+                    <div className="flexCenter ml-2 gap-2 self-end md:gap-3">
+                      <span className="text-sm md:text-[1rem]">۲۰:۲۷</span>
+                      <i className="bi bi-play-circle text-xl md:text-2xl"></i>
+                    </div>
+                  </li>
+                  <div className="my-2 h-[1px] w-full bg-gray-200" />
+                  <li className="flexCenter flexRow w-full flex-col gap-6 p-2 xs:flex-row">
+                    <div className="flexCenter w-full justify-start gap-4">
+                      <span className="flexCenter h-[12px] w-[12px] rounded-md bg-white p-4 text-black md:p-5">
+                        ۱
+                      </span>
+                      <p className="text-sm md:text-[1rem]">
+                        معرفی دوره + نگاه کلی به پروژه دوره
+                      </p>
+                    </div>
+                    <div className="flexCenter ml-2 gap-2 self-end md:gap-3">
+                      <span className="text-sm md:text-[1rem]">۲۰:۲۷</span>
+                      <i className="bi bi-play-circle text-xl md:text-2xl"></i>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </article>
           </div>
         </div>
       </div>
