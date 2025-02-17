@@ -14,6 +14,7 @@ module.exports = {
       screens: {
         xs: "425px",
         "3xl": "2000px",
+        "4xl": "3000px",
       },
       colors: {
         lightBlue: "rgb(14,165,233)",

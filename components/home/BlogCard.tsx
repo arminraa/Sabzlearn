@@ -14,7 +14,7 @@ export default function BlogCard() {
         />
         <div className="absolute inset-0 h-full w-full bg-gradient-to-t from-white/100 to-white/0 dark:hidden" />
       </div>
-      <div className="topShadow flex flex-col gap-4 p-4">
+      <div className="flex flex-col gap-4 p-4">
         <h3 className="w-full text-right font-semibold">
           آموزش جامع زبان انگلیسی
         </h3>
