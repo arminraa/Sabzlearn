@@ -138,6 +138,13 @@ import "swiper/css/autoplay"; */
   .right-chevron {
     clip-path: polygon(0 50%, 100% 100%, 100% 0);
   }
+  #avatar {
+    background-image: url("/images/mehrshad-barati.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-size: cover;
+  }
 }
 
 @font-face {

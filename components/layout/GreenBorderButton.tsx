@@ -10,7 +10,7 @@ export default function GreenBorderButton({
   return (
     <button
       onClick={onClick}
-      className={`${optStyles} rounded-md border border-lightGreen bg-white p-2 text-sm text-lightGreen hover:bg-green-50`}
+      className={`${optStyles} rounded-md border border-lightGreen bg-white p-2 text-sm text-lightGreen transition-colors hover:bg-green-50 dark:bg-transparent dark:hover:bg-green-100/10`}
     >
       {title}
     </button>

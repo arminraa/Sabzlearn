@@ -8,12 +8,12 @@ export default function CourseDescription() {
     setShowText(!showText);
   };
   return (
-    <div className="col-span-12 w-full rounded-md bg-white p-4 leading-8 lg:col-span-9">
+    <>
       <h3 className="flexCenter my-4 flex-row-reverse justify-end gap-2 text-xl font-semibold text-black sm:text-2xl sm:font-bold dark:text-white">
-        <span className="text-black">توضیحات</span>
+        <span className="text-black dark:text-white">توضیحات</span>
         <div className="hidden h-4 w-4 bg-lightOrange sm:block" />
       </h3>
-      <p className="text-start">
+      <p className="text-start text-black dark:text-white">
         NEXT.Js یا NEXT طی چندسال اخیر برای تکمیل و تقویت تکنولوژی React وارد
         میدون شد و سعی کرد تمام نواقص یا محدودیت های اون رو پوشش بده تا هیچ شک و
         شبهه ای در قدرت ری اکت برای طراحی صفحات وب باقی نمونه. به عبارتی اومده
@@ -28,7 +28,7 @@ export default function CourseDescription() {
       />
       <div className="flex flex-col justify-center gap-4">
         <p
-          className={`${showText ? "lg:h-[100px]" : "lg:h-[60px]"} relative h-auto self-start overflow-hidden text-start transition-all`}
+          className={`${showText ? "lg:h-[100px]" : "lg:h-[60px]"} relative h-auto self-start overflow-hidden text-start transition-all text-black dark:text-white`}
         >
           اگر در برنامه نویسی دنبال کاهش کدهای برنامه، سرعت اجرای فوق العاده وب
           سایت، فول استک بودن تکنولوژی و همینطور پشتیبانی اون هستید، NEXT یکی از
@@ -46,6 +46,6 @@ export default function CourseDescription() {
           onClick={handleClick}
         />
       </div>
-    </div>
+    </>
   );
 }

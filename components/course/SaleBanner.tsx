@@ -28,12 +28,12 @@ export default function SaleBanner() {
     };
   }, [second]);
   return (
-    <div className="flexCenter w-full flex-col gap-4 rounded-md bg-gray-200 px-3 py-4 sm:justify-between lg:bg-white xl:flex-row">
+    <div className="flexCenter w-full flex-col gap-4 rounded-md bg-gray-200 px-3 py-4 sm:justify-between lg:bg-white xl:flex-row dark:bg-cardDark">
       <span className="whitespace-nowrap text-[1rem] font-bold text-red-600 sm:text-lg">
         ۵۰ ٪ پیشنهاد شگفت انگیز
       </span>
       <div className="flexCenter gap-3 font-[300] sm:text-lg">
-        <span className="flexCenter flex-col gap-1 whitespace-nowrap border-l-[1px] border-gray-300 pl-3 sm:flex-row">
+        <span className="flexCenter flex-col gap-1 whitespace-nowrap border-l-[1px] border-gray-300 pl-3 text-black sm:flex-row dark:text-white">
           <strong className="text-lg font-semibold sm:text-2xl">
             {day < 10 && day !== 0
               ? `۰${ToPersianNumber(day)}`
@@ -41,7 +41,7 @@ export default function SaleBanner() {
           </strong>{" "}
           روز
         </span>
-        <span className="flexCenter flex-col gap-1 whitespace-nowrap border-l-[1px] border-gray-300 pl-3 sm:flex-row">
+        <span className="flexCenter flex-col gap-1 whitespace-nowrap border-l-[1px] border-gray-300 pl-3 text-black sm:flex-row dark:text-white">
           <strong className="text-lg font-semibold sm:text-2xl">
             {hour < 10 && hour !== 0
               ? `۰${ToPersianNumber(hour)}`
@@ -49,7 +49,7 @@ export default function SaleBanner() {
           </strong>{" "}
           ساعت
         </span>
-        <span className="flexCenter flex-col gap-1 whitespace-nowrap border-l-[1px] border-gray-300 pl-3 sm:flex-row">
+        <span className="flexCenter flex-col gap-1 whitespace-nowrap border-l-[1px] border-gray-300 pl-3 text-black sm:flex-row dark:text-white">
           <strong className="text-lg font-semibold sm:text-2xl">
             {minute < 10 && minute !== 0
               ? `۰${ToPersianNumber(minute)}`
@@ -63,7 +63,7 @@ export default function SaleBanner() {
               ? `۰${ToPersianNumber(second)}`
               : ToPersianNumber(second)}
           </strong>{" "}
-          ثانیه
+          <span className="text-black dark:text-white">ثانیه</span>
         </span>
       </div>
     </div>
