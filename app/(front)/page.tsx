@@ -1,0 +1,23 @@
+import Blog from "@/components/home/Blog";
+import FreeCourses from "@/components/home/FreeCourses";
+import Help from "@/components/home/Help";
+import LastCourses from "@/components/home/LastCourses";
+import NewCourses from "@/components/home/NewestCourses";
+import PopularCourses from "@/components/home/PopularCourses";
+import Roadmaps from "@/components/home/Roadmaps";
+import Hero from "@/components/layout/Hero";
+
+export default function Home() {
+  return (
+    <main>
+      <Hero />
+      <LastCourses />
+      <Roadmaps />
+      <PopularCourses />
+      <Help />
+      <NewCourses />
+      <Blog />
+      <FreeCourses />
+    </main>
+  );
+}
