@@ -8,6 +8,9 @@ A modern clone of the Sabzlearn educational platform built with Next.js. This pr
 
 🌐 Live Demo: https://sabzlearn-gules.vercel.app/
 
+*For accessing course category page please
+enter /course-cat/slug
+
 
 ## Features
 
