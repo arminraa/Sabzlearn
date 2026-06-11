@@ -3,7 +3,7 @@ import HelpCard from "./HelpCard";
 export default function Help() {
   return (
     <section className="my-14">
-      <div className="container">
+      <div className="container lg:px-10">
         <div className="flexCol">
           <div className="flexCenter flex-col gap-4 text-center sm:items-start sm:self-start">
             <h3 className="flexCenter flex-row-reverse gap-2 text-2xl font-semibold sm:text-3xl sm:font-bold">

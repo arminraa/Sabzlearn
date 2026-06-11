@@ -4,7 +4,7 @@ import BlogCard from "./BlogCard";
 export default function Blog() {
   return (
     <section className="mt-14">
-      <div className="container">
+      <div className="container lg:px-10">
         <div className="flexCenter flex-col gap-6 sm:flex-row sm:justify-between">
           <div className="flexCenter flex-col items-start gap-4">
             <h3 className="flexCenter flex-row-reverse gap-2 text-2xl font-semibold sm:text-3xl sm:font-bold">

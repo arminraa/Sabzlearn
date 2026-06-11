@@ -10,7 +10,7 @@ export default function NewCourses() {
 
   return (
     <section className="mt-14">
-      <div className="container">
+      <div className="container lg:px-10">
         <div className="md:flexRow">
           <div className="flexCenter flex-col gap-4 sm:items-start sm:self-start">
             <h3 className="flexCenter flex-row-reverse gap-2 text-2xl font-semibold sm:text-3xl sm:font-bold">
@@ -39,7 +39,7 @@ export default function NewCourses() {
           </div>
         </div>
 
-        <Swiper
+        {/* <Swiper
           onSwiper={(swiper) => setSwiperInstance(swiper)}
           className="mt-10"
           modules={[Autoplay]}
@@ -81,7 +81,7 @@ export default function NewCourses() {
           <SwiperSlide>
             <CourseCard />
           </SwiperSlide>
-        </Swiper>
+        </Swiper> */}
         <div className="flexCenter mt-6 gap-2 md:hidden">
           <span
             onClick={() => swiperInstance.slidePrev()}
