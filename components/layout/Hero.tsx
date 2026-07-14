@@ -22,14 +22,14 @@ export default function Hero() {
               و پیشرفت کن
             </p>
             <div className="flexCenter gap-4 lg:justify-start">
-              <button className="flexCenter rounded-3xl bg-lightBlue px-2 py-[10px] font-bold text-white lg:px-4">
+              <Link href="/course-cat/all" className="flexCenter rounded-3xl bg-lightBlue px-2 py-[10px] font-bold text-white lg:px-4">
                 <i className="bi bi-person text-2xl"></i>
                 از این مسیر ها شروع کن
-              </button>
+              </Link>
               <div className="flexCenter gap-2">
                 <div className="bg-lightGreen p-6 flexCenter h-[24px] w-[24px] rounded-full">
                   <Link
-                    href="#"
+                    href="/course-cat/all?only_free_courses=true"
                     className="rounded-full text-center text-3xl text-white"
                   >
                     <i className=" translate-y-[2px] translate-x-[1px] bi bi-play w-full h-full inline-block"></i>

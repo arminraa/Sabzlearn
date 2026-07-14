@@ -7,19 +7,73 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Course {
-  id           String   @id @default(cuid())
-  title        String
-  slug         String   @unique
-  shortDescription String  // Short description for the card
-  imageUrl     String
-  author       String   // Author name (simple string for now)
-  price        Float
-  salePrice    Float?   // Optional, null if no discount
-  score        Float    @default(0)  // Average rating (0-5)
-  viewersCount Int      @default(0)  // Number of views
-  published    Boolean  @default(true)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+model Video {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  videoUrl  String
+  duration  Int // seconds
+  order     Int
+  isFree    Boolean  @default(false)
+  chapterId String
+  chapter   Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
+model Chapter {
+  id    String @id @default(cuid())
+  title String
+  order       Int
+  description String?
+  courseId String
+  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  videos Video[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Course {
+  id                    String    @id @default(cuid())
+  title                 String
+  slug                  String    @unique
+  shortDescription      String // Short description for the card
+  description           String
+  imageUrl              String
+  author                String // Author name (simple string for now)
+  authorProfileImageUrl String
+  price                 Float
+  salePrice             Float? // Optional, null if no discount
+  score                 Float     @default(0) // Average rating (0-5)
+  viewersCount          Int       @default(0) // Number of views
+  published             Boolean   @default(true)
+  preSale               Boolean   @default(true)
+  courseLength          Int
+  prerequisite          String
+  progressPercent       Float
+  chapters              Chapter[]
+  categoryId            String?
+  category              Category? @relation(fields: [categoryId], references: [id])
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+}
+
+model Category {
+  id      String   @id @default(cuid())
+  title   String
+  slug    String   @unique
+  courses Course[]
+}
+
+model User {
+  id       String @id @default(cuid())
+  username String @unique
+  password String
+  role     String @default("admin")
+}
+
+// const categories = await prisma.category.findMany({
+//   include: {
+//     courses: true,
+//   },
+// });

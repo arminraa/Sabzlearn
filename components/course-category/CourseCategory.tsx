@@ -2,10 +2,22 @@
 import { useEffect, useState } from "react";
 import SearchInput from "../header/SearchInput";
 import CourseCard from "../CourseCard";
-import { Course } from "@/types/prisma";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import FilterMenuMobile from "./FilterMenuMobile";
+import CategoryPageSearchInput from "./CategoryPageSearchInput";
+import { ToPersianNumber } from "topersiannumber";
+import Link from "next/link";
+import { Category, Course } from "@prisma/client";
 
-export default function CourseCategory({ courses }: { courses: Course[] }) {
+export default function CourseCategory({
+  category,
+  allCourses,
+}: {
+  category: {
+    courses: Course[];
+  } & Category;
+  allCourses: Course[];
+}) {
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
   const [isActive, setIsActive] = useState(0);
@@ -38,23 +50,40 @@ export default function CourseCategory({ courses }: { courses: Course[] }) {
       router.push(`?${params.toString()}`);
     }
   };
+  const handlePreSaleSlider = () => {
+    setIsChecked2((prev) => !prev);
+    if (isChecked2) {
+      params.set("only_pre_sale_courses", "false");
+      router.push(`?${params.toString()}`);
+    } else {
+      params.set("only_pre_sale_courses", "true");
+      router.push(`?${params.toString()}`);
+    }
+  };
   return (
-    <section className="lg:px-10">
-      <div className="mx-auto min-h-screen w-full max-w-[425px] px-[1rem] sm:max-w-[unset] sm:px-[1.5rem] md:max-w-[640px] lg:max-w-[1024px] xl:max-w-[1280px] 2xl:max-w-[1536px] 3xl:max-w-[2000px]">
+    <section className="h-full lg:px-10">
+      <div className=" mx-auto min-h-screen w-full max-w-[425px] px-[1rem] sm:max-w-[unset] sm:px-[1.5rem] md:max-w-[640px] lg:max-w-[1024px] xl:max-w-[1280px] 2xl:max-w-[1536px] 3xl:max-w-[2000px]">
         <div className="lg:pb-3 lg:mt-4 flexCenter flex-col gap-6 pt-6 sm:flex-row sm:justify-between">
           <h3 className="flexCenter flex-row-reverse gap-2 text-2xl font-semibold text-black sm:text-3xl sm:font-bold dark:text-white">
             <span className="text-black dark:text-white">
-              دوره های فرانت اند
+              {category.slug === "all"
+                ? "همه دوره ها"
+                : ` ${category.title} دوره های`}
             </span>
             <div className="hidden h-4 w-4 bg-lightOrange sm:block" />
           </h3>
 
-          <span className="text-lightGray lg:text-xl">۲۹ عنوان آموزشی</span>
+          <span className="text-lightGray lg:text-xl">
+            {category.slug === "all"
+              ? ToPersianNumber(allCourses.length)
+              : ToPersianNumber(category.courses.length)}{" "}
+            عنوان آموزشی
+          </span>
         </div>
         <div className="mt-6 w-full lg:mt-10">
           <div className="flexCenter w-full flex-wrap gap-4 sm:gap-5 lg:flex-nowrap lg:items-start xl:gap-10">
             <div className="flexCenter w-full flex-wrap gap-4 sm:gap-5 lg:w-[30%] xl:w-[25%]">
-              <SearchInput
+              <CategoryPageSearchInput
                 placeholder="جستجو بین دوره ها"
                 inputStyles="bg-white dark:bg-cardDark placeholder:sm:text-lg rounded-xl px-3 py-2 lg:py-4 lg:px-4"
                 styles="w-full"
@@ -79,20 +108,22 @@ export default function CourseCategory({ courses }: { courses: Course[] }) {
                 <div className="flexCenter h-full cursor-pointer">
                   <div
                     className="checkbox-wrapper-2 flexCol"
-                    onClick={() => setIsChecked2((prev) => !prev)}
+                    onClick={handlePreSaleSlider}
                   >
                     <input type="checkbox" className="sc-gJwTLC ikxBAC" />
                   </div>
                 </div>
               </div>
             </div>
-            <button className="flexCenter flex-grow-[1] basis-0 gap-2 rounded-lg bg-white px-4 py-3 text-black md:hidden dark:bg-cardDark dark:text-white">
-              <i className="bi bi-funnel sm:text-lg"></i>
-              <span className="text-sm sm:text-[1rem]">فیلتر</span>
-            </button>
+            <FilterMenuMobile />
             <button className="flexCenter flex-grow-[1] basis-0 gap-2 rounded-lg bg-white px-4 py-3 text-black md:hidden dark:bg-cardDark dark:text-white">
               <i className="bi bi-arrow-down-up sm:text-lg"></i>
-              <span className="text-sm sm:text-[1rem]">همه دوره ها</span>
+              <span
+                className="text-sm sm:text-[1rem]"
+                onClick={() => router.push("/course-cat/all")}
+              >
+                همه دوره ها
+              </span>
             </button>
             <div className="w-full lg:w-[70%] xl:w-[75%]">
               <div className="md:flexRow hidden h-[78px] w-full rounded-xl bg-white text-black dark:bg-cardDark dark:text-white">
@@ -152,21 +183,43 @@ export default function CourseCategory({ courses }: { courses: Course[] }) {
                 </div>
               </div>
               <div className="gridCols1 mt-6 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                {courses.map((course, index) => (
-                  <CourseCard
-                    key={course.id}
-                    index={index}
-                    id={course.id}
-                    title={course.title}
-                    description={course.shortDescription}
-                    author={course.author}
-                    price={course.price}
-                    salePrice={course.salePrice}
-                    score={course.score}
-                    viewersCount={course.viewersCount}
-                    imageUrl={course.imageUrl}
-                  />
-                ))}
+                {category.slug === "all" ? (
+                  allCourses.map((course, index) => (
+                    <CourseCard
+                      slug={course.slug}
+                      key={course.id}
+                      index={index}
+                      id={course.id}
+                      title={course.title}
+                      description={course.shortDescription}
+                      author={course.author}
+                      price={course.price}
+                      salePrice={course.salePrice}
+                      score={course.score}
+                      viewersCount={course.viewersCount}
+                      imageUrl={course.imageUrl}
+                    />
+                  ))
+                ) : category.courses.length > 0 ? (
+                  category.courses.map((course, index) => (
+                    <CourseCard
+                      key={course.id}
+                      slug={course.slug}
+                      index={index}
+                      id={course.id}
+                      title={course.title}
+                      description={course.shortDescription}
+                      author={course.author}
+                      price={course.price}
+                      salePrice={course.salePrice}
+                      score={course.score}
+                      viewersCount={course.viewersCount}
+                      imageUrl={course.imageUrl}
+                    />
+                  ))
+                ) : (
+                  <div className="col-span-3  text-2xl">دوره ای یافت نشد !</div>
+                )}
               </div>
             </div>
           </div>

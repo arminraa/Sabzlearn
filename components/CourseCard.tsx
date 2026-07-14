@@ -12,6 +12,7 @@ export default function CourseCard({
   score,
   viewersCount,
   imageUrl,
+  slug,
 }: {
   index: number;
   id: string;
@@ -23,13 +24,13 @@ export default function CourseCard({
   score: number;
   viewersCount: number;
   imageUrl: string;
+  slug: string;
 }) {
   return (
-    <Link href="/course/eng-course">
+    <Link href={`/course/${slug}`}>
       <article className="w-full rounded-xl bg-white dark:bg-cardDark">
         <img
-          // src="/images/English22-1-768x432.webp"
-          src={imageUrl}
+          src={imageUrl || "/images/placeholder-course.jpg"}
           className="h-[168px] w-full rounded-xl object-cover"
           alt="Card-Image"
         />

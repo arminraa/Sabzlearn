@@ -6,14 +6,25 @@ import NewCourses from "@/components/home/NewestCourses";
 import PopularCourses from "@/components/home/PopularCourses";
 import Roadmaps from "@/components/home/Roadmaps";
 import Hero from "@/components/layout/Hero";
+import prisma from "@/lib/prisma";
 
-export default function Home() {
+export default async function Home() {
+  const popularCourses = await prisma.course.findMany({
+    where: {
+      published: true,
+    },
+    orderBy: {
+      createdAt: "desc",  
+      // Latest first
+    },
+  });
+
   return (
     <main>
       <Hero />
       <LastCourses />
       <Roadmaps />
-      <PopularCourses />
+      <PopularCourses popularCourses={popularCourses} />
       <Help />
       <NewCourses />
       <Blog />

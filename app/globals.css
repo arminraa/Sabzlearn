@@ -30,6 +30,12 @@ import "swiper/css/autoplay"; */
   .flexCenter {
     @apply flex items-center justify-center;
   }
+  .flexRowStart {
+    @apply flex items-center justify-start;
+  }
+  .flexRowEnd {
+    @apply flex items-center justify-end;
+  }
   .overlay {
     @apply absolute inset-0 bg-black/40;
   }

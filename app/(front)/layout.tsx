@@ -1,27 +1,35 @@
-import type { Metadata } from "next";
 import "../globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { ThemeProvider } from "next-themes";
+import Providers from "@/components/Providers";
+import { Metadata } from "next";
+import prisma from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Sabzlearn",
   description: "Programming teaching platform",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const categories = await prisma.category.findMany({
+    include: {
+      courses: true,
+    },
+  });
   return (
     <html lang="fa" dir="rtl" suppressHydrationWarning>
       <body className="overflow-x-hidden bg-lightGray/15 dark:bg-gray-900 dark:text-white">
-        <ThemeProvider attribute="class">
-          <Header />
+        <Providers>
+          <Header categories={categories} />
           {children}
           <Footer />
-        </ThemeProvider>
+        </Providers>
         <div className="flexCenter fixed bottom-4 left-4 h-[60px] w-[60px] cursor-pointer rounded-full bg-lightBlue transition-colors hover:bg-lightBlue/70">
           <svg
             xmlns="http://www.w3.org/2000/svg"

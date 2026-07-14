@@ -10,8 +10,7 @@ export default async function LastCourses() {
     orderBy: {
       createdAt: "desc", // Latest first
     },
-    take : 8
-    
+    take: 8,
   });
 
   return (
@@ -29,7 +28,10 @@ export default async function LastCourses() {
               سکوی پرتاپ شما به سمت موفقیت
             </h4>
           </div>
-          <Link href="/course-cat/all" className="flexCenter gap-2 text-lg text-lightGreen">
+          <Link
+            href="/course-cat/all"
+            className="flexCenter gap-2 text-lg text-lightGreen"
+          >
             <span>مشاهده همه دوره ها</span>
             <i className="bi bi-arrow-left"></i>
           </Link>
@@ -37,6 +39,7 @@ export default async function LastCourses() {
         <div className="gridCols1 mt-14 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {courses.map((course, index) => (
             <CourseCard
+              slug={course.slug}
               key={course.id}
               index={index}
               id={course.id}

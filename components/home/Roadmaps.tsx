@@ -1,6 +1,20 @@
+import prisma from "@/lib/prisma";
 import RoadmapCard from "./RoadmapCard";
 
-export default function Roadmaps() {
+export default async function Roadmaps() {
+  const categories = await prisma.category.findMany({
+    include: {
+      courses: true,
+    },
+  });
+
+  const gradientArray = [
+    "orange-red-gradient",
+    "green-blue-gradient",
+    "blue-purple-gradient",
+    "pink-purple-gradient",
+  ];
+
   return (
     <section className="mt-14">
       <div className="container lg:px-10">
@@ -15,30 +29,19 @@ export default function Roadmaps() {
             </h4>
           </div>
           <div className="gridCols1 mt-7 w-full grid-cols-2 gap-4 sm:grid-cols-3 md:mt-8 lg:mt-14 lg:grid-cols-4">
-            <RoadmapCard
-              title="فرانت اند"
-              quantity="۳۰ دوره"
-              color="orange-red-gradient"
-              icon="bi bi-code-slash"
-            />
-            <RoadmapCard
-              title="امنیت"
-              quantity="۲۰ دوره"
-              color="green-blue-gradient"
-              icon="bi bi-shield-check"
-            />
-            <RoadmapCard
-              title="جاوا"
-              quantity="۱۰ دوره"
-              color="blue-purple-gradient"
-              icon="bi bi-filetype-java"
-            />
-            <RoadmapCard
-              title="اندروید"
-              quantity="۵ دوره"
-              color="pink-purple-gradient"
-              icon="bi bi-android"
-            />
+            {categories &&
+              categories.map((category, index) =>
+                index < 4 ? (
+                  <RoadmapCard
+                    key={category.id}
+                    title={category.title}
+                    quantity={`${category.courses.length}`}
+                    color={gradientArray[index]}
+                    icon="bi bi-shield-check"
+                    slug={category.slug}
+                  />
+                ) : null
+              )}
           </div>
         </div>
       </div>

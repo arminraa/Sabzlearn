@@ -1,25 +1,34 @@
+import Link from "next/link";
+import { ToPersianNumber } from "topersiannumber";
+
 export default function RoadmapCard({
   title,
   quantity,
   color,
   icon,
+  slug,
 }: Readonly<{
   title: string;
   quantity: string;
   icon: string;
-  color:
-    | "orange-red-gradient"
-    | "green-blue-gradient"
-    | "pink-purple-gradient"
-    | "blue-purple-gradient";
+  color: string;
+  slug: string;
 }>) {
   return (
-    <article className={`flexCenter rounded-xl ${color} h-[145px] w-full p-6`}>
-      <div className="flexCol text-white">
-        <i className={`${icon} text-3xl`}></i>
-        <span className="whitespace-nowrap text-lg font-semibold">{title}</span>
-        <span className="whitespace-nowrap">{quantity}</span>
-      </div>
-    </article>
+    <Link className="w-full" href={`/course-cat/${slug}`}>
+      <article
+        className={`flexCenter w-full rounded-xl ${color} h-[145px] w-full p-6`}
+      >
+        <div className="flexCol text-white">
+          <i className={`${icon} text-3xl`}></i>
+          <span className="whitespace-nowrap text-lg font-semibold">
+            {title}
+          </span>
+          <span className="whitespace-nowrap">
+            {ToPersianNumber(quantity)} دوره
+          </span>
+        </div>
+      </article>
+    </Link>
   );
 }

@@ -32,7 +32,7 @@ export default function SaleBanner() {
       <span className="whitespace-nowrap text-[1rem] font-bold text-red-600 sm:text-lg">
         ۵۰ ٪ پیشنهاد شگفت انگیز
       </span>
-      <div className="flexCenter gap-3 font-[300] sm:text-lg">
+      <div className="flexCenter gap-3 font-[300]">
         <span className="flexCenter flex-col gap-1 whitespace-nowrap border-l-[1px] border-gray-300 pl-3 text-black sm:flex-row dark:text-white">
           <strong className="text-lg font-semibold sm:text-2xl">
             {day < 10 && day !== 0
