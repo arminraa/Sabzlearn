@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -12,50 +12,50 @@ model Video {
   title     String
   slug      String   @unique
   videoUrl  String
-  duration  Int // seconds
+  duration  Int
   order     Int
   isFree    Boolean  @default(false)
   chapterId String
-  chapter   Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  chapter   Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 }
 
 model Chapter {
-  id    String @id @default(cuid())
-  title String
+  id          String   @id @default(cuid())
+  title       String
   order       Int
   description String?
-  courseId String
-  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  videos Video[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  courseId    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  videos      Video[]
 }
 
 model Course {
   id                    String    @id @default(cuid())
   title                 String
   slug                  String    @unique
-  shortDescription      String // Short description for the card
+  shortDescription      String
   description           String
   imageUrl              String
-  author                String // Author name (simple string for now)
+  author                String
   authorProfileImageUrl String
   price                 Float
-  salePrice             Float? // Optional, null if no discount
-  score                 Float     @default(0) // Average rating (0-5)
-  viewersCount          Int       @default(0) // Number of views
+  salePrice             Float?
+  score                 Float     @default(0)
+  viewersCount          Int       @default(0)
   published             Boolean   @default(true)
   preSale               Boolean   @default(true)
   courseLength          Int
   prerequisite          String
   progressPercent       Float
-  chapters              Chapter[]
   categoryId            String?
-  category              Category? @relation(fields: [categoryId], references: [id])
   createdAt             DateTime  @default(now())
   updatedAt             DateTime  @updatedAt
+  chapters              Chapter[]
+  category              Category? @relation(fields: [categoryId], references: [id])
 }
 
 model Category {
@@ -71,9 +71,3 @@ model User {
   password String
   role     String @default("admin")
 }
-
-// const categories = await prisma.category.findMany({
-//   include: {
-//     courses: true,
-//   },
-// });
