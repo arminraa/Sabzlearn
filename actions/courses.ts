@@ -26,7 +26,11 @@ export async function getAllCourses() {
     ...course,
     _count: {
       ...course._count,
-      videos: course.chapters.reduce((acc, ch) => acc + ch._count.videos, 0),
+      videos: course.chapters.reduce(
+        (acc: number, ch: { _count: { videos: number } }) =>
+          acc + ch._count.videos,
+        0
+      ),
     },
   }));
 }

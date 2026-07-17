@@ -10,7 +10,8 @@ async function recalculateCourseLength(courseId: string) {
     include: { videos: true },
   });
   const totalSeconds = chapters.reduce(
-    (sum, ch) => sum + ch.videos.reduce((s, v) => s + v.duration, 0),
+    (sum: number, ch: { videos: { duration: number }[] }) =>
+      sum + ch.videos.reduce((s: number, v: { duration: number }) => s + v.duration, 0),
     0
   );
   const totalHours = Math.round(totalSeconds / 3600 * 10) / 10;
