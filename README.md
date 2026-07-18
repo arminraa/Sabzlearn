@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sabzlearn Clone
 
-## Getting Started
+A full-stack clone of the **Sabzlearn educational website**, built **100% from scratch by me using Next.js**.
 
-First, run the development server:
+🚧 **This project is currently under development.** Some parts are completed, and I am continuing to build the remaining sections and features.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## About The Project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project is a clone of the Sabzlearn website created to practice and demonstrate modern frontend and full-stack development skills.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The entire application has been developed from scratch, including the UI, components, database structure, and application logic.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+### 🏠 Home Page
 
-To learn more about Next.js, take a look at the following resources:
+- Modern landing page
+- Course cards section
+- Course information display
+- Responsive design for all devices
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 📚 Courses Category Page (`/course-cat`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Displays all courses
+- Course filtering system
+- Search functionality
+- Responsive course grid
+- Optimized user experience
 
-## Deploy on Vercel
+### 📖 Course Details Page
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Separate page for each course
+- Course information display
+- Course content structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🛠 Admin Panel (`/panel`)
+
+- Admin dashboard
+- Course management
+- Admin interface for controlling website data
+
+### 🔐 Admin Login
+
+For testing the admin panel:
+Username: admin
+Password: admin123
+
+## Technologies Used
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Prisma ORM
+- PostgreSQL (Neon)
+- Swiper.js
+- And other modern libraries
+
+## Responsive Design
+
+The project is fully responsive and works on:
+
+- Desktop
+- Tablet
+- Mobile devices
+
+## 🌐 Live Demo
+
+You can view the live version of the project here:
+
+[Sabzlearn Clone](https://sabzlearn-gules.vercel.app)
