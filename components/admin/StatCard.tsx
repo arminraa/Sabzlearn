@@ -24,18 +24,18 @@ export default function StatCard({
   };
 
   return (
-    <div className="group rounded-2xl border border-gray-100 bg-white p-5 transition-all duration-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800">
+    <div className="group rounded-2xl border border-gray-100 bg-white p-4 transition-all duration-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 sm:p-5">
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-sm text-lightGray dark:text-gray-400">{title}</p>
-          <p className="mt-2 text-3xl font-bold text-gray-800 dark:text-white">
+          <p className="text-xs text-lightGray dark:text-gray-400 sm:text-sm">{title}</p>
+          <p className="mt-2 text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
             {value}
           </p>
         </div>
         <div
-          className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${colorMap[color]} text-white shadow-lg transition-transform duration-300 group-hover:scale-110`}
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${colorMap[color]} text-white shadow-lg transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12`}
         >
-          <i className={`bi ${icon} text-xl`}></i>
+          <i className={`bi ${icon} text-lg sm:text-xl`}></i>
         </div>
       </div>
     </div>

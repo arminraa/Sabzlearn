@@ -292,7 +292,7 @@ export default function CourseVideoPageClient({
           </div>
 
           {/* Comments */}
-          <div className="flexCol col-span-12 flex items-stretch gap-2 rounded-md bg-white dark:bg-cardDark p-4 lg:col-span-8 lg:gap-4">
+          {/* <div className="flexCol col-span-12 flex items-stretch gap-2 rounded-md bg-white dark:bg-cardDark p-4 lg:col-span-8 lg:gap-4">
             <div className="flexRow">
               <h3 className="flexCenter my-4 flex-row-reverse justify-end gap-2 text-xl font-semibold text-black sm:text-2xl sm:font-bold dark:text-white">
                 <span className="text-black dark:text-white">نظرات</span>
@@ -309,7 +309,7 @@ export default function CourseVideoPageClient({
               کنید.
             </div>
             <Comment />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

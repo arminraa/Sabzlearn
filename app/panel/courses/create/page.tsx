@@ -12,7 +12,7 @@ export default async function CreateCoursePage() {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+        <h1 className="text-xl font-bold text-gray-800 dark:text-white sm:text-2xl">
           افزودن دوره جدید
         </h1>
       </div>
@@ -42,7 +42,7 @@ export default async function CreateCoursePage() {
       >
         <div className="flex flex-col gap-6">
           {/* Basic Info */}
-          <div className="rounded-2xl border border-gray-100 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+          <div className="rounded-2xl border border-gray-100 bg-white p-4 dark:border-gray-700 dark:bg-gray-800 sm:p-6">
             <h3 className="mb-4 text-lg font-bold text-gray-800 dark:text-white">
               <i className="bi bi-info-circle ml-2 text-lightBlue"></i>
               اطلاعات پایه
@@ -111,7 +111,7 @@ export default async function CreateCoursePage() {
           </div>
 
           {/* Pricing */}
-          <div className="rounded-2xl border border-gray-100 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+          <div className="rounded-2xl border border-gray-100 bg-white p-4 dark:border-gray-700 dark:bg-gray-800 sm:p-6">
             <h3 className="mb-4 text-lg font-bold text-gray-800 dark:text-white">
               <i className="bi bi-currency-dollar ml-2 text-lightGreen"></i>
               قیمت‌گذاری
@@ -134,7 +134,7 @@ export default async function CreateCoursePage() {
           </div>
 
           {/* Course Info */}
-          <div className="rounded-2xl border border-gray-100 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+          <div className="rounded-2xl border border-gray-100 bg-white p-4 dark:border-gray-700 dark:bg-gray-800 sm:p-6">
             <h3 className="mb-4 text-lg font-bold text-gray-800 dark:text-white">
               <i className="bi bi-gear ml-2 text-lightOrange"></i>
               تنظیمات دوره
@@ -166,7 +166,7 @@ export default async function CreateCoursePage() {
           </div>
 
           {/* Submit */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <button
               type="submit"
               className="flex items-center gap-2 rounded-xl bg-lightBlue px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-darkBlue"

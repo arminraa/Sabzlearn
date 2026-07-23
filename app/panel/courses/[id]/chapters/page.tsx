@@ -33,17 +33,17 @@ export default async function ChaptersPage({
     <div className="flex flex-col gap-6">
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
+        <div className="min-w-0">
           <div className="flex items-center gap-2 text-sm text-lightGray">
-            <Link href="/panel/courses" className="hover:text-lightBlue">
+            <Link href="/panel/courses" className="shrink-0 hover:text-lightBlue">
               دوره‌ها
             </Link>
-            <i className="bi bi-chevron-left text-xs"></i>
-            <span className="text-gray-800 dark:text-white">
+            <i className="bi bi-chevron-left shrink-0 text-xs"></i>
+            <span className="min-w-0 truncate text-gray-800 dark:text-white">
               {course.title}
             </span>
           </div>
-          <h1 className="mt-2 text-2xl font-bold text-gray-800 dark:text-white">
+          <h1 className="mt-2 text-xl font-bold text-gray-800 dark:text-white sm:text-2xl">
             مدیریت فصل‌ها
           </h1>
         </div>
@@ -101,23 +101,23 @@ export default async function ChaptersPage({
               className="rounded-2xl border border-gray-100 bg-white dark:border-gray-700 dark:bg-gray-800"
             >
               {/* Chapter Header */}
-              <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4 dark:border-gray-700">
+              <div className="flex flex-col gap-3 border-b border-gray-100 px-4 py-4 dark:border-gray-700 sm:flex-row sm:items-center sm:justify-between sm:px-6">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-lightBlue/10 text-sm font-bold text-lightBlue">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-lightBlue/10 text-sm font-bold text-lightBlue">
                     {index + 1}
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800 dark:text-white">
+                  <div className="min-w-0">
+                    <h3 className="truncate font-bold text-gray-800 dark:text-white">
                       {chapter.title}
                     </h3>
                     {chapter.description && (
-                      <p className="mt-0.5 text-xs text-lightGray">
+                      <p className="mt-0.5 truncate text-xs text-lightGray">
                         {chapter.description}
                       </p>
                     )}
                   </div>
                 </div>
-                <div className="flex items-center gap-1">
+                <div className="flex shrink-0 items-center gap-1">
                   <Link
                     href={`/panel/courses/${id}/chapters/${chapter.id}/edit`}
                     className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-medium text-lightBlue transition-colors hover:bg-lightBlue/10"
@@ -137,7 +137,7 @@ export default async function ChaptersPage({
               </div>
 
               {/* Videos */}
-              <div className="px-6 py-3">
+              <div className="px-4 py-3 sm:px-6">
                 {chapter.videos.length === 0 ? (
                   <p className="py-4 text-center text-xs text-lightGray">
                     ویدیویی وجود ندارد
@@ -147,7 +147,7 @@ export default async function ChaptersPage({
                     {chapter.videos.map((video) => (
                       <div
                         key={video.id}
-                        className="flex items-center justify-between rounded-lg px-4 py-2.5 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700/50"
+                        className="flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700/50 sm:px-4"
                       >
                         <div className="flex items-center gap-3">
                           <div className="flex h-6 w-6 items-center justify-center rounded-md bg-gray-100 text-xs text-lightGray dark:bg-gray-700">

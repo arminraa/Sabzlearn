@@ -5,12 +5,12 @@ export default function CreateCategoryPage() {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+        <h1 className="text-xl font-bold text-gray-800 dark:text-white sm:text-2xl">
           افزودن دسته‌بندی جدید
         </h1>
       </div>
 
-      <div className="rounded-2xl border border-gray-100 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+      <div className="rounded-2xl border border-gray-100 bg-white p-4 dark:border-gray-700 dark:bg-gray-800 sm:p-6">
         <form
           action={async (data: FormData) => {
             "use server";
@@ -35,7 +35,7 @@ export default function CreateCategoryPage() {
             required
           />
 
-          <div className="flex items-center gap-3 pt-2">
+          <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
             <button
               type="submit"
               className="flex items-center gap-2 rounded-xl bg-lightBlue px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-darkBlue"

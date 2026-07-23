@@ -101,18 +101,57 @@ export default async function AdminDashboard() {
 
       {/* Latest Courses */}
       <div className="rounded-2xl border border-gray-100 bg-white dark:border-gray-700 dark:bg-gray-800">
-        <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4 dark:border-gray-700">
-          <h2 className="text-lg font-bold text-gray-800 dark:text-white">
+        <div className="flex items-center justify-between border-b border-gray-100 px-4 py-4 dark:border-gray-700 sm:px-6">
+          <h2 className="text-base font-bold text-gray-800 dark:text-white sm:text-lg">
             آخرین دوره‌ها
           </h2>
           <Link
             href="/panel/courses"
-            className="text-sm font-medium text-lightBlue hover:text-darkBlue"
+            className="text-xs font-medium text-lightBlue hover:text-darkBlue sm:text-sm"
           >
             مشاهده همه
           </Link>
         </div>
-        <div className="overflow-x-auto">
+
+        {/* Mobile card view */}
+        <div className="divide-y divide-gray-50 dark:divide-gray-700 sm:hidden">
+          {latestCourses.length === 0 ? (
+            <div className="flex flex-col items-center py-12">
+              <i className="bi bi-book text-4xl text-lightGray"></i>
+              <p className="mt-2 text-sm text-lightGray">
+                هنوز دوره‌ای وجود ندارد
+              </p>
+            </div>
+          ) : (
+            latestCourses.map((course) => (
+              <div key={course.id} className="flex items-center justify-between px-4 py-3">
+                <div>
+                  <p className="text-sm font-medium text-gray-800 dark:text-white">
+                    {course.title}
+                  </p>
+                  <div className="mt-1 flex items-center gap-3 text-xs text-lightGray">
+                    <span>{course.category?.title || "-"}</span>
+                    <span className="font-medium text-lightGreen">
+                      {course.price.toLocaleString("fa-IR")} تومان
+                    </span>
+                  </div>
+                </div>
+                <span
+                  className={`inline-flex shrink-0 items-center rounded-full px-2 py-0.5 text-[10px] font-medium ${
+                    course.published
+                      ? "bg-lightGreen/10 text-lightGreen"
+                      : "bg-red-500/10 text-red-500"
+                  }`}
+                >
+                  {course.published ? "منتشر شده" : "پیش‌نویس"}
+                </span>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Desktop table view */}
+        <div className="hidden overflow-x-auto sm:block">
           <table className="w-full text-right text-sm">
             <thead>
               <tr className="border-b border-gray-100 bg-gray-50/50 dark:border-gray-700 dark:bg-gray-700/50">

@@ -56,15 +56,12 @@ export default function AdminFormFile({
         {label}
       </label>
       <input type="hidden" name={name} value={hiddenValue} />
-      <div
-        className="flex items-center gap-3"
-        dir="ltr"
-      >
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center" dir="ltr">
         <button
           type="button"
           onClick={() => inputRef.current?.click()}
           disabled={uploading}
-          className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-600 transition-colors hover:bg-gray-50 disabled:opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+          className="flex shrink-0 items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-600 transition-colors hover:bg-gray-50 disabled:opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
         >
           {uploading ? (
             <>
@@ -87,7 +84,7 @@ export default function AdminFormFile({
           required={required && !hiddenValue}
         />
         {preview && !uploading && (
-          <span className="truncate text-xs text-lightGray max-w-[200px]">
+          <span className="truncate text-xs text-lightGray">
             {preview.split("/").pop()}
           </span>
         )}
@@ -98,7 +95,7 @@ export default function AdminFormFile({
             <video
               src={preview}
               controls
-              className="h-40 rounded-xl object-cover"
+              className="h-40 w-full max-w-[320px] rounded-xl object-cover"
             />
           ) : (
             <img
