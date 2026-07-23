@@ -2,8 +2,19 @@
 
 import { useState } from "react";
 import FilterMenuItems from "./FilterMenuItems";
+import { Category, Course } from "@prisma/client";
 
-export default function FilterMenuMobile() {
+export default function FilterMenuMobile({
+  onlyFreeCourses,
+  onlyPreSaleCourses,
+  categories,
+}: {
+  onlyFreeCourses: string | undefined;
+  onlyPreSaleCourses: string | undefined;
+  categories: (Category & {
+    courses: Course[];
+  })[];
+}) {
   const [filterMenuShow, setFilterMenuShow] = useState(false);
   const handleMenu = () => {
     setFilterMenuShow(true);
@@ -33,7 +44,12 @@ export default function FilterMenuMobile() {
           filterMenuShow ? "right-0" : "-right-full"
         } fixed top-0 z-[50] h-screen w-[80%] max-w-[250px] bg-white transition-all dark:bg-gray-900`}
       >
-        <FilterMenuItems setFilterMenuShow={setFilterMenuShow} />
+        <FilterMenuItems
+          categories={categories}
+          setFilterMenuShow={setFilterMenuShow}
+          onlyFreeCourses={onlyFreeCourses}
+          onlyPreSaleCourses={onlyPreSaleCourses}
+        />
       </div>
     </>
   );

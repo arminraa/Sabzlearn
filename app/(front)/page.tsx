@@ -9,7 +9,7 @@ import Hero from "@/components/layout/Hero";
 import prisma from "@/lib/prisma";
 
 export default async function Home() {
-  const popularCourses = await prisma.course.findMany({
+  const courses = await prisma.course.findMany({
     where: {
       published: true,
     },
@@ -24,11 +24,11 @@ export default async function Home() {
       <Hero />
       <LastCourses />
       <Roadmaps />
-      <PopularCourses popularCourses={popularCourses} />
+      <PopularCourses courses={courses} />
       <Help />
-      <NewCourses />
+      <NewCourses courses={courses} />
       <Blog />
-      <FreeCourses />
+      <FreeCourses courses={courses} />
     </main>
   );
 }

@@ -16,7 +16,6 @@ export default async function CourseCategoryPage({
   const { sort_by, only_free_courses, only_pre_sale_courses, query } =
     await searchParams;
   const { slug } = await params;
-  console.log(query);
   const where: any = {
     published: true,
   };
@@ -81,6 +80,11 @@ export default async function CourseCategoryPage({
     },
   });
   const allCourses = categories.flatMap((category) => category.courses);
+  const allCategories = await prisma.category.findMany({
+    include: {
+      courses: true,
+    },
+  });
   // if (slug === "all") {
   //   return <CourseCategory categories={categories} courses={courses} />;
   // } else {
@@ -90,9 +94,16 @@ export default async function CourseCategoryPage({
     <>
       {categories.map((category) =>
         category.slug === slug ? (
-          <CourseCategory key={category.id} category={category} allCourses={allCourses} />
+          <CourseCategory
+            categories={allCategories}
+            onlyPreSaleCourses={only_pre_sale_courses}
+            onlyFreeCourses={only_free_courses}
+            key={category.id}
+            category={category}
+            allCourses={allCourses}
+          />
         ) : (
-          <div key={category.id} ></div>
+          <div key={category.id}></div>
         )
       )}
     </>

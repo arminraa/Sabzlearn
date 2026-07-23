@@ -24,7 +24,7 @@ export default async function RootLayout({
   });
   return (
     <html lang="fa" dir="rtl" suppressHydrationWarning>
-      <body className="overflow-x-hidden bg-lightGray/15 dark:bg-gray-900 dark:text-white">
+      <body className="min-h-screen overflow-x-hidden bg-lightGray/15 dark:bg-gray-900 dark:text-white">
         <Providers>
           <Header categories={categories} />
           {children}

@@ -2,40 +2,51 @@
 
 import { Grid2x2, X } from "lucide-react";
 import { Checkbox } from "../ui/checkbox";
-import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Category, Course } from "@prisma/client";
+import { ChangeEvent } from "react";
 export default function FilterMenuItems({
   setFilterMenuShow,
+  onlyFreeCourses,
+  onlyPreSaleCourses,
+  categories,
 }: Readonly<{
   setFilterMenuShow: (value: boolean) => void;
+  onlyFreeCourses: string | undefined;
+  onlyPreSaleCourses: string | undefined;
+  categories: (Category & {
+    courses: Course[];
+  })[];
 }>) {
-  const [isChecked1, setIsChecked1] = useState(false);
-  const [isChecked2, setIsChecked2] = useState(false);
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
+  const handleCheckedChange = (checked: boolean, categorySlug: string) => {
+    console.log(checked, categorySlug);
+    if (checked) {
+      params.append("category", categorySlug);
+      router.push(`?${params.toString()}`);
+    } else {
+      params.delete("category", categorySlug);
+      router.push(`?${params.toString()}`);
+    }
+  };
   const router = useRouter();
   const handleFreeCourseSlider = () => {
-    setIsChecked1((prev) => !prev);
-    if (isChecked1) {
+    if (onlyFreeCourses === "true") {
       params.set("only_free_courses", "false");
       router.push(`?${params.toString()}`);
-      setFilterMenuShow(false);
     } else {
       params.set("only_free_courses", "true");
       router.push(`?${params.toString()}`);
-      setFilterMenuShow(false);
     }
   };
   const handlePreSaleSlider = () => {
-    setIsChecked2((prev) => !prev);
-    if (isChecked2) {
+    if (onlyPreSaleCourses === "true") {
       params.set("only_pre_sale_courses", "false");
       router.push(`?${params.toString()}`);
-      setFilterMenuShow(false);
     } else {
       params.set("only_pre_sale_courses", "true");
       router.push(`?${params.toString()}`);
-      setFilterMenuShow(false);
     }
   };
   return (
@@ -57,42 +68,17 @@ export default function FilterMenuItems({
               <span className="text-lg">دسته بندی ها</span>
             </div>
             <ul className="w-full px-4 py-4 flexCol items-start gap-3">
-              <li className="flexRowStart gap-2">
-                <Checkbox className="bg-[#e0dfdf] p-2 border-transparent" />
-                <span className="text-sm self-center">HTML & CSS</span>
-              </li>
-              <li className="flexRowStart gap-2">
-                <Checkbox className="bg-[#e0dfdf] p-2 border-transparent" />
-                <span className="text-sm self-center">HTML & CSS</span>
-              </li>
-              <li className="flexRowStart gap-2">
-                <Checkbox className="bg-[#e0dfdf] p-2 border-transparent" />
-                <span className="text-sm self-center">HTML & CSS</span>
-              </li>
-              <li className="flexRowStart gap-2">
-                <Checkbox className="bg-[#e0dfdf] p-2 border-transparent" />
-                <span className="text-sm self-center">HTML & CSS</span>
-              </li>
-              <li className="flexRowStart gap-2">
-                <Checkbox className="bg-[#e0dfdf] p-2 border-transparent" />
-                <span className="text-sm self-center">HTML & CSS</span>
-              </li>
-              <li className="flexRowStart gap-2">
-                <Checkbox className="bg-[#e0dfdf] p-2 border-transparent" />
-                <span className="text-sm self-center">HTML & CSS</span>
-              </li>
-              <li className="flexRowStart gap-2">
-                <Checkbox className="bg-[#e0dfdf] p-2 border-transparent" />
-                <span className="text-sm self-center">HTML & CSS</span>
-              </li>
-              <li className="flexRowStart gap-2">
-                <Checkbox className="bg-[#e0dfdf] p-2 border-transparent" />
-                <span className="text-sm self-center">HTML & CSS</span>
-              </li>
-              <li className="flexRowStart gap-2">
-                <Checkbox className="bg-[#e0dfdf] p-2 border-transparent" />
-                <span className="text-sm self-center">HTML & CSS</span>
-              </li>
+              {categories.map((category) => (
+                <li key={category.id} className="flexRowStart gap-2">
+                  <Checkbox
+                    onCheckedChange={(checked) =>
+                      handleCheckedChange(Boolean(checked), category.slug)
+                    }
+                    className="bg-[#e0dfdf] p-2 border-transparent"
+                  />
+                  <span className="text-sm self-center">{category.title}</span>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="h-[.5px] w-[95%] mx-auto bg-lightGray/40" />
@@ -100,12 +86,11 @@ export default function FilterMenuItems({
             <div className="flexRow">
               <span>فقط دوره های رایگان</span>
               <span>
-                <div
-                  className="checkbox-wrapper-2 flexCol"
-                  onClick={() => handleFreeCourseSlider()}
-                >
-                  <input type="checkbox" className="sc-gJwTLC ikxBAC" />
-                </div>
+                <Checkbox
+                  className="p-2"
+                  checked={onlyFreeCourses === "true"}
+                  onCheckedChange={handleFreeCourseSlider}
+                />
               </span>
             </div>
           </div>
@@ -114,12 +99,11 @@ export default function FilterMenuItems({
             <div className="flexRow">
               <span>در حال پیش فروش</span>
               <span>
-                <div
-                  onClick={() => handlePreSaleSlider()}
-                  className="checkbox-wrapper-2 flexCol"
-                >
-                  <input type="checkbox" className="sc-gJwTLC ikxBAC" />
-                </div>
+                <Checkbox
+                  className="p-2"
+                  checked={onlyPreSaleCourses === "true"}
+                  onCheckedChange={handlePreSaleSlider}
+                />
               </span>
             </div>
           </div>

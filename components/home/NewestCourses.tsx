@@ -4,8 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import CourseCard from "../CourseCard";
 import { useState } from "react";
+import { Course } from "@prisma/client";
 
-export default function NewCourses() {
+export default function NewCourses({ courses }: { courses: Course[] }) {
   const [swiperInstance, setSwiperInstance] = useState<null | any>(null);
 
   return (
@@ -15,7 +16,7 @@ export default function NewCourses() {
           <div className="flexCenter flex-col gap-4 sm:items-start sm:self-start">
             <h3 className="flexCenter flex-row-reverse gap-2 text-2xl font-semibold sm:text-3xl sm:font-bold">
               <span className="text-black dark:text-white">
-                پرطرفدار ترین دوره ها
+                جدید ترین دوره ها
               </span>
               <div className="hidden h-4 w-4 bg-lightGreen sm:block" />
             </h3>
@@ -39,7 +40,7 @@ export default function NewCourses() {
           </div>
         </div>
 
-        {/* <Swiper
+        <Swiper
           onSwiper={(swiper) => setSwiperInstance(swiper)}
           className="mt-10"
           modules={[Autoplay]}
@@ -60,28 +61,26 @@ export default function NewCourses() {
           }}
           autoplay={{ delay: 4000 }}
         >
-          <SwiperSlide>
-            <CourseCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CourseCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CourseCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CourseCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CourseCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CourseCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CourseCard />
-          </SwiperSlide>
-        </Swiper> */}
+          {courses
+            .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+            .map((course, index) => (
+              <SwiperSlide key={course.id}>
+                <CourseCard
+                  slug={course.slug}
+                  index={index}
+                  id={course.id}
+                  title={course.title}
+                  description={course.shortDescription}
+                  author={course.author}
+                  price={course.price}
+                  salePrice={course.salePrice}
+                  score={course.score}
+                  viewersCount={course.viewersCount}
+                  imageUrl={course.imageUrl}
+                />
+              </SwiperSlide>
+            ))}
+        </Swiper>
         <div className="flexCenter mt-6 gap-2 md:hidden">
           <span
             onClick={() => swiperInstance.slidePrev()}

@@ -15,21 +15,13 @@ export default function Header({
     courses: Course[];
   } & Category)[];
 }) {
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-
-  const open = (id: string) => {
-    setOpenDropdown(id);
-  };
-  const close = () => {
-    setOpenDropdown(null);
-  };
   return (
     <>
       <header className="sticky left-0 right-0 top-0 z-20 w-screen bg-white py-4 shadow-md dark:bg-gray-900 dark:shadow-xl">
         <div className="container lg:max-w-[1790px]">
           <div className="flexRow gap-2">
             <div className="flexCenter h-5 w-5 rounded-full bg-lightGray/10 p-6 lg:hidden">
-              <Menu />
+              <Menu categories={categories} />
             </div>
 
             <Link href="/" className="sm:mx-auto lg:mx-0">
@@ -44,15 +36,12 @@ export default function Header({
             <div className="lg:flexCenter hidden gap-4 lg:ml-auto lg:pr-4">
               {categories &&
                 categories.map((category, index) =>
-                  index < 7 && category.slug !== "all" ? (
+                  index < 7 && category.slug !== "all" && category.courses.length > 0 ? (
                     <DropDownItem
                       key={category.id}
                       category={category}
-                      onMouseEnter={() => open(category.id)}
-                      onMouseLeave={close}
-                      isOpen={openDropdown === category.id ? true : false}
                     />
-                  ) : null
+                  ) : undefined
                 )}
             </div>
 

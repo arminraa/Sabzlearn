@@ -9,34 +9,30 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 export default function DropDownItem({
   category,
-  onMouseEnter,
-  onMouseLeave,
-  isOpen,
 }: Readonly<{
   category: {
     courses: Course[];
   } & Category;
-  onMouseLeave: () => void;
-  onMouseEnter: () => void;
-  isOpen: boolean;
 }>) {
   const [selectedColor, setSelectedColor] = useState<"green" | "black">(
     "black"
   );
+  const [open, setOpen] = useState(false);
   const router = useRouter();
   return (
-    <div
-      className="h-[30px]"
-      onMouseEnter={() => {
-        onMouseEnter();
-        setSelectedColor("green");
-      }}
-      onMouseLeave={() => {
-        onMouseLeave();
-        setSelectedColor("black");
-      }}
-    >
-      <DropdownMenu key={category.id} open={isOpen}>
+    <div className="h-[30px]">
+      <DropdownMenu
+        open={open}
+        onOpenChange={(isOpen) => {
+          if (isOpen) {
+            setSelectedColor("green");
+            setOpen(true);
+          } else {
+            setSelectedColor("black");
+            setOpen(false);
+          }
+        }}
+      >
         <DropdownMenuTrigger className="outline-none">
           <li
             className={`flexCenter cursor-pointer gap-2 transition-colors ${
@@ -45,12 +41,7 @@ export default function DropDownItem({
                 : "text-black dark:text-white"
             }`}
           >
-            <span
-              className="cursor-pointer"
-              onClick={() => router.push(`/course-cat/${category.slug}`)}
-            >
-              {category.title}
-            </span>
+            <span className="cursor-pointer">{category.title}</span>
             {category.courses.length > 0 && (
               <i className="bi bi-chevron-down"></i>
             )}
@@ -70,9 +61,11 @@ export default function DropDownItem({
                   <li
                     className="cursor-pointer transition-colors hover:text-lightGreen"
                     key={categoryCourse.id}
-                    onClick={() =>
-                      router.push(`/course/${categoryCourse.slug}`)
-                    }
+                    onClick={() => {
+                      setOpen(false);
+                      setSelectedColor("black");
+                      router.push(`/course/${categoryCourse.slug}`);
+                    }}
                   >
                     {categoryCourse.title}
                   </li>

@@ -8,11 +8,7 @@ import CourseCard from "../CourseCard";
 import { useState } from "react";
 import { Course } from "@prisma/client";
 
-export default function PopularCourses({
-  popularCourses,
-}: {
-  popularCourses: Course[];
-}) {
+export default function PopularCourses({ courses }: { courses: Course[] }) {
   const [swiperInstance, setSwiperInstance] = useState<null | any>(null);
 
   return (
@@ -67,23 +63,25 @@ export default function PopularCourses({
           }}
           autoplay={{ delay: 4000 }}
         >
-          {popularCourses.map((course, index) => (
-            <SwiperSlide key={course.id}>
-              <CourseCard
-                slug={course.slug}
-                index={index}
-                id={course.id}
-                title={course.title}
-                description={course.shortDescription}
-                author={course.author}
-                price={course.price}
-                salePrice={course.salePrice}
-                score={course.score}
-                viewersCount={course.viewersCount}
-                imageUrl={course.imageUrl}
-              />
-            </SwiperSlide>
-          ))}
+          {courses
+            .sort((a, b) => b.score - a.score)
+            .map((course, index) => (
+              <SwiperSlide key={course.id}>
+                <CourseCard
+                  slug={course.slug}
+                  index={index}
+                  id={course.id}
+                  title={course.title}
+                  description={course.shortDescription}
+                  author={course.author}
+                  price={course.price}
+                  salePrice={course.salePrice}
+                  score={course.score}
+                  viewersCount={course.viewersCount}
+                  imageUrl={course.imageUrl}
+                />
+              </SwiperSlide>
+            ))}
         </Swiper>
         <div className="flexCenter mt-6 gap-2 md:hidden">
           <span

@@ -1,28 +1,32 @@
 "use client";
 import { useEffect, useState } from "react";
-import SearchInput from "../header/SearchInput";
 import CourseCard from "../CourseCard";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import FilterMenuMobile from "./FilterMenuMobile";
 import CategoryPageSearchInput from "./CategoryPageSearchInput";
 import { ToPersianNumber } from "topersiannumber";
-import Link from "next/link";
 import { Category, Course } from "@prisma/client";
+import { Checkbox } from "../ui/checkbox";
 
 export default function CourseCategory({
   category,
   allCourses,
+  onlyFreeCourses,
+  onlyPreSaleCourses,
+  categories,
 }: {
   category: {
     courses: Course[];
   } & Category;
   allCourses: Course[];
+  onlyFreeCourses: string | undefined;
+  onlyPreSaleCourses: string | undefined;
+  categories: (Category & {
+    courses: Course[];
+  })[];
 }) {
-  const [isChecked1, setIsChecked1] = useState(false);
-  const [isChecked2, setIsChecked2] = useState(false);
   const [isActive, setIsActive] = useState(0);
   const router = useRouter();
-  const pathName = usePathname();
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
   useEffect(() => {
@@ -40,9 +44,8 @@ export default function CourseCategory({
       setIsActive(3);
     }
   }, []);
-  const handeFreeCourseSlider = () => {
-    setIsChecked1((prev) => !prev);
-    if (isChecked1) {
+  const handleFreeCourseSlider = () => {
+    if (onlyFreeCourses === "true") {
       params.set("only_free_courses", "false");
       router.push(`?${params.toString()}`);
     } else {
@@ -50,9 +53,8 @@ export default function CourseCategory({
       router.push(`?${params.toString()}`);
     }
   };
-  const handlePreSaleSlider = () => {
-    setIsChecked2((prev) => !prev);
-    if (isChecked2) {
+  const handlePreSaleCourseSlider = () => {
+    if (onlyPreSaleCourses === "true") {
       params.set("only_pre_sale_courses", "false");
       router.push(`?${params.toString()}`);
     } else {
@@ -93,12 +95,11 @@ export default function CourseCategory({
                   فقط دوره های رایگان
                 </span>
                 <div className="flexCenter h-full cursor-pointer">
-                  <div
-                    className="checkbox-wrapper-2 flexCol"
-                    onClick={() => handeFreeCourseSlider()}
-                  >
-                    <input type="checkbox" className="sc-gJwTLC ikxBAC" />
-                  </div>
+                  <Checkbox
+                    className="p-2"
+                    checked={onlyFreeCourses === "true"}
+                    onCheckedChange={handleFreeCourseSlider}
+                  />
                 </div>
               </div>
               <div className="md:flexRow hidden w-full rounded-xl bg-white px-3 py-2 lg:py-4 lg:px-4 dark:bg-cardDark">
@@ -106,16 +107,15 @@ export default function CourseCategory({
                   در حال پیش فروش{" "}
                 </span>
                 <div className="flexCenter h-full cursor-pointer">
-                  <div
-                    className="checkbox-wrapper-2 flexCol"
-                    onClick={handlePreSaleSlider}
-                  >
-                    <input type="checkbox" className="sc-gJwTLC ikxBAC" />
-                  </div>
+                  <Checkbox
+                    className="p-2"
+                    checked={onlyPreSaleCourses === "true"}
+                    onCheckedChange={handlePreSaleCourseSlider}
+                  />
                 </div>
               </div>
             </div>
-            <FilterMenuMobile />
+            <FilterMenuMobile categories={categories} onlyFreeCourses={onlyFreeCourses} onlyPreSaleCourses={onlyPreSaleCourses} />
             <button className="flexCenter flex-grow-[1] basis-0 gap-2 rounded-lg bg-white px-4 py-3 text-black md:hidden dark:bg-cardDark dark:text-white">
               <i className="bi bi-arrow-down-up sm:text-lg"></i>
               <span

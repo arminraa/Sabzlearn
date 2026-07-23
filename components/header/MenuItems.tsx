@@ -9,13 +9,20 @@ import {
 } from "@/components/ui/accordion";
 import DarkModeButton from "./DarkModeButton";
 import SearchInput from "./SearchInput";
+import { Category, Course } from "@prisma/client";
+import { useRouter } from "next/navigation";
 export default function MenuItems({
   setMenuShow,
+  categories,
 }: Readonly<{
   setMenuShow: (value: boolean) => void;
+  categories: ({
+    courses: Course[];
+  } & Category)[];
 }>) {
+  const router = useRouter();
   return (
-    <div className="container relative py-4">
+    <div className="container relative py-4 h-full">
       <div className="flex flex-col justify-center gap-6">
         <div className="flexRow">
           <Link href="#">
@@ -39,20 +46,40 @@ export default function MenuItems({
         </div>
         <div className="h-[1px] w-full bg-lightGray/40" />
         <SearchInput inputStyles="rounded-2xl lg:rounded-3xl py-2 lg:py-[12px] px-4" />
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="focus-within:outline-0">
-              فرانت اند
-            </AccordionTrigger>
-            <AccordionContent>
-              <ul className="flex flex-col justify-center gap-6 rounded-lg bg-lightGray/15 px-4 py-2">
-                <li>آموزش HTML</li>
-                <li>آموزش CSS</li>
-                <li>آموزش JS</li>
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        {categories.map((category, index) => {
+          return category.slug === "all" ? undefined : category.courses.length >
+            0 ? (
+            <Accordion
+              key={category.id}
+              type="single"
+              collapsible
+              className="w-full dark:text-white text-black"
+            >
+              <AccordionItem value={`item-${index}`}>
+                <AccordionTrigger className="focus-within:outline-0">
+                  {category.title}
+                </AccordionTrigger>
+                <AccordionContent>
+                  {
+                    <ul className="flex flex-col justify-center gap-6 rounded-lg bg-lightGray/15 px-4 py-2">
+                      {category.courses.map((course) => (
+                        <li
+                          onClick={() => {
+                            router.push(`/course/${course.slug}`);
+                            setMenuShow(false);
+                          }}
+                          key={course.id}
+                        >
+                          {course.title}
+                        </li>
+                      ))}
+                    </ul>
+                  }
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          ) : undefined;
+        })}
         {/* <ul className="flex flex-col justify-between gap-6">
           <li className="flexRow">
             <span>فرانت اند</span>
